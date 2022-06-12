@@ -1,0 +1,33 @@
+{
+  "name": "musicbridge",
+  "version": "1.0.0",
+  "description": "Recieves MIDI messages and converts them to AppleScript commands to control Apple Music and Spotify for macOS",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlockArchitech/musicbridge.git"
+  },
+  "keywords": [
+    "Electron",
+    "music",
+    "MIDI",
+    "bridge"
+  ],
+  "author": "GitHub",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/BlockArchitech/musicbridge"
+  },
+  "homepage": "https://blockarchitech.com",
+  "devDependencies": {
+    "electron-packager": "^15.5.1",
+    "electron-prebuilt": "^0.36.0",
+    "electron-rebuild": "^1.1.3"
+  },
+  "dependencies": {
+    "node-osascript": "^2.0.0"
+  }
+}
