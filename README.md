@@ -1,4 +1,8 @@
+<p align=center>
+
 # MusicBridge
+  
+</p>
 
 MusicBridge Recieves MIDI messages and converts them to AppleScript commands to control Apple Music and Spotify for macOS.
 
