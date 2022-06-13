@@ -20,3 +20,7 @@ Please ensure you also select the right music player in the settings.
 
 - Learning may not work properly 
 - You may have to select Spotify, then iTunes and then Spotify again and vice-versa to set music player.
+
+## Note
+
+iTunes has been replaced by Apple Music. All references to iTunes actually mean Apple Music.
