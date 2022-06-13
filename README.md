@@ -1,10 +1,13 @@
-<p align=center>
-
-# MusicBridge
-  
+<p align="center">
+  <img width="300px" src="https://raw.githubusercontent.com/BlockArchitech/MusicBridge/master/RoundedIcon.png">
 </p>
 
-MusicBridge Recieves MIDI messages and converts them to AppleScript commands to control Apple Music and Spotify for macOS.
+<h1 align="center">MusicBridge</h1>
+
+<p align="center">MusicBridge Recieves MIDI messages and converts them to AppleScript commands to control Apple Music and Spotify for macOS.</p>
+
+
+
 
 ## Installation
 
