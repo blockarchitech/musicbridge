@@ -22,18 +22,21 @@ var db = {
 	musicPlayer : 'Spotify'
 };
 
-var learning = 0;
-function learnMidi(id) {
-learning = parseInt(id);
-LOG.innerHTML = 'Ready to Learn...';
-}
+
 
 var LOG = document.getElementById('log');
 LOG.innerHTML = 'app loaded on ' + new Date();
-LOG.innerHTML = 'TIP: Click on Fade In or Fade Out to fade in/out without MIDI commands.'
+
+// LEARNING
+var learning = 0;
+function learnMidi(id) {
+	learning = parseInt(id);
+	document.getElementById('log').innerHTML = 'Learning MIDI command '+id;
+}
+
 function build() {
-var h = '<p><label onclick="musicIn()">Fade-In:</label> <b><span id="a0">'+db.a[1]+'</span></b> <span onclick="learnMidi(1) type="button">Learn</span></p>';
-h += '<p><label onclick="musicOut()">Fade-Out:</label> <b><span id="a1">'+db.a[2]+'</span></b> <span onclick="learnMidi(2) type="button">Learn</span></p>';
+var h = '<p><label onclick="musicIn()">Fade-In:</label> <b><span id="a0">'+db.a[1]+'</span></b> <span onclick="learnMidi(1)" type="button">Learn</span></p>';
+h += '<p><label onclick="musicOut()">Fade-Out:</label> <b><span id="a1">'+db.a[2]+'</span></b> <span onclick="learnMidi(2)" type="button">Learn</span></p>';
 document.getElementById('c').innerHTML = h;
 
 var h = '<select class="form-select" id="fd" onchange="fadeDur()">';
@@ -46,6 +49,9 @@ h += '</select>';
 document.getElementById('durr').innerHTML = h;
 
 }
+
+
+
 
 // Music Player Selection
 

@@ -25,7 +25,6 @@ Please ensure you also select the right music player in the settings.
 
 ## Known Issues
 
-- Learning may not work properly 
 - You may have to select Spotify, then iTunes and then Spotify again and vice-versa to set music player.
 
 ## Note
