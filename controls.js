@@ -12,10 +12,9 @@
 // c - Contains MIDI Settings
 // ----------------------------------------------------------------
 
+var currentTime = new Date().toLocaleTimeString();
 
-
-
-var osascript = require('node-osascript');
+var execute = require('node-osascript')
 var db = {
 	a: ['','',''],
 	fadeDuration : 3,
@@ -163,23 +162,30 @@ function musicOut() {
 //---------------- APPLESCRIPT -----------------
 function spotifyIn() {
 var fade = db.fadeDuration / 100;
-osascript.execute('tell application "Spotify"\nif player state is paused then\nset the sound volume to 0\nend if\nend tell\ntell application "Spotify"\nif player state is paused then\nplay\nend if\nset volumespotify to the sound volume\nrepeat\nrepeat with i from volumespotify to 100 by 1\nset the sound volume to i\ndelay '+fade+'\nend repeat\nexit repeat\nend repeat\nend tell');
+	execute.execute('tell application "Spotify"\nif player state is paused then\nset the sound volume to 0\nend if\nend tell\ntell application "Spotify"\nif player state is paused then\nplay\nend if\nset volumespotify to the sound volume\nrepeat\nrepeat with i from volumespotify to 100 by 1\nset the sound volume to i\ndelay '+fade+'\nend repeat\nexit repeat\nend repeat\nend tell');
+	new Notification('musicbridge', { body: `Spotify faded in at ${currentTime}` });
+
 LOG.innerHTML = 'Spotify faded in '+new Date();
 }
 function spotifyOut() {
 var fade = db.fadeDuration / 100;
-osascript.execute('tell application "Spotify"\nif player state is not paused then\nset volumespotify to the sound volume\nend if\nend tell\ntell application "Spotify"\nif player state is not paused then\nrepeat\nrepeat with i from volumespotify to 0 by -1\nset the sound volume to i\ndelay '+fade+'\nend repeat\npause\nexit repeat\nend repeat\nend if\nend tell');
+	execute.execute('tell application "Spotify"\nif player state is not paused then\nset volumespotify to the sound volume\nend if\nend tell\ntell application "Spotify"\nif player state is not paused then\nrepeat\nrepeat with i from volumespotify to 0 by -1\nset the sound volume to i\ndelay '+fade+'\nend repeat\npause\nexit repeat\nend repeat\nend if\nend tell');
+	new Notification('musicbridge', { body: `Spotify faded out at ${currentTime}` });
+
 LOG.innerHTML = 'Spotify faded out '+new Date();
 }
 
 function iTunesIn() {
 	fade = db.fadeDuration / 100;
-	osascript.execute('tell application "Music"\nif player state is paused then\nset snd to the sound volume\nset snd to 0\nplay\nrepeat\nrepeat with i from snd to 100 by 1\nset the sound volume to i\ndelay '+fade+'\nend repeat\nexit repeat\nend repeat\nend if\nend tell');
+	execute.execute('tell application "Music"\nif player state is paused then\nset snd to the sound volume\nset snd to 0\nplay\nrepeat\nrepeat with i from snd to 100 by 1\nset the sound volume to i\ndelay '+fade+'\nend repeat\nexit repeat\nend repeat\nend if\nend tell');
+	new Notification('musicbridge', { body: `iTunes faded in at ${currentTime}` });
+
 	LOG.innerHTML = 'iTunes faded in '+new Date();
 }
 function iTunesOut() {
 	fade = db.fadeDuration / 100;
-	osascript.execute('tell application "Music"\nif player state is not paused then\nset snd to the sound volume\nrepeat\nrepeat with i from snd to 0 by -1\nset the sound volume to i\ndelay '+fade+'\nend repeat\npause\nexit repeat\nend repeat\nend if\nend tell');
+	execute.execute('tell application "Music"\nif player state is not paused then\nset snd to the sound volume\nrepeat\nrepeat with i from snd to 0 by -1\nset the sound volume to i\ndelay '+fade+'\nend repeat\npause\nexit repeat\nend repeat\nend if\nend tell');
+	new Notification('musicbridge', { body: `iTunes faded out at ${currentTime}` });
 	LOG.innerHTML = 'iTunes faded out '+new Date();
 }
 
