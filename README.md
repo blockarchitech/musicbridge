@@ -1,6 +1,4 @@
-<p align="center">
-  <img width="300px" src="https://raw.githubusercontent.com/BlockArchitech/MusicBridge/master/RoundedIcon.png">
-</p>
+
 
 <h1 align="center">MusicBridge</h1>
 
