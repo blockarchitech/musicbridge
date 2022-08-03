@@ -16,9 +16,10 @@ func midiTest() {
     inputPort?.onMIDIMessage = { (list: UnsafePointer<MIDIPacketList>) in
         for packet in list {
             print("received \(packet)")
+            // somehow read packet
         }
 		
     }
-	// clear the buffer
+	
 	
 }
