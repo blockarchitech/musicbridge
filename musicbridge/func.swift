@@ -28,7 +28,7 @@ func spotifyUp() {
         repeat
             repeat with i from volumespotify to 100 by 1
                 set the sound volume to i
-                delay 0.1
+                delay 0.01
             end repeat
             exit repeat
         end repeat
@@ -55,13 +55,71 @@ func spotifyDown() {
             repeat
                 repeat with i from volumespotify to 0 by -1
                     set the sound volume to i
-                    delay 0.1
+                    delay 0.01
                 end repeat
                 pause
                 exit repeat
             end repeat
         end if
     end tell
+    """]
+    
+    task.launch()
+}
+
+func appleMusicUp() {
+    let task = Process()
+    task.launchPath = "/usr/bin/osascript"
+    task.arguments = ["""
+    -e
+    tell application "Music"
+        if player state is paused then
+            set snd to the sound volume
+            set snd to 0
+            play
+            repeat
+                repeat with i from snd to 100 by 1
+                    set the sound volume to i
+                    delay 0.01
+                end repeat
+                exit repeat
+            end repeat
+        end if
+    end tell
+    """]
+    
+    task.launch()
+}
+
+func appleMusicDown() {
+    let task = Process()
+    task.launchPath = "/usr/bin/osascript"
+    task.arguments = ["""
+    -e
+    tell application "Music"
+        if player state is not paused then
+            set snd to the sound volume
+            repeat
+                repeat with i from snd to 0 by -1
+                    set the sound volume to i
+                    delay 0.01
+                end repeat
+                pause
+                exit repeat
+            end repeat
+        end if
+    end tell
+    """]
+    
+    task.launch()
+}
+
+func openSettingsView() {
+    let task = Process()
+    task.launchPath = "/usr/bin/osascript"
+    task.arguments = ["""
+    -e
+    tell application "System Events" to keystroke "," using {command down}
     """]
     
     task.launch()

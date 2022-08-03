@@ -17,6 +17,9 @@ struct musicbridgeApp: App {
         WindowGroup {
             ContentView().frame(minWidth: width, maxWidth: width, minHeight: height, maxHeight: height, alignment: .center)
         }
+        Settings {
+                    SettingsView()
+                }
     }
     
 }

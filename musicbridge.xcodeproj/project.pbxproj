@@ -11,6 +11,9 @@
 		279E4B7F28997CEE00355840 /* spotifyup.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 279E4B7E28997CEE00355840 /* spotifyup.applescript */; };
 		279E4B8228997D8F00355840 /* applemusicdown.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B8128997D8F00355840 /* applemusicdown.applescript */; };
 		279E4B8428997E1700355840 /* spotifydown.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B8328997E1700355840 /* spotifydown.applescript */; };
+		279E4B882899A43300355840 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B872899A43300355840 /* Settings.swift */; };
+		279E4B8C2899B0D600355840 /* MIDIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B8B2899B0D600355840 /* MIDIHandler.swift */; };
+		279E4B962899D13000355840 /* WebMIDIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 279E4B952899D13000355840 /* WebMIDIKit */; };
 		27E3EBD62898B17C00D5FB55 /* musicbridgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */; };
 		27E3EBD82898B17C00D5FB55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBD72898B17C00D5FB55 /* ContentView.swift */; };
 		27E3EBDA2898B17E00D5FB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E3EBD92898B17E00D5FB55 /* Assets.xcassets */; };
@@ -43,6 +46,8 @@
 		279E4B7E28997CEE00355840 /* spotifyup.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = spotifyup.applescript; sourceTree = "<group>"; };
 		279E4B8128997D8F00355840 /* applemusicdown.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = applemusicdown.applescript; sourceTree = "<group>"; };
 		279E4B8328997E1700355840 /* spotifydown.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = spotifydown.applescript; sourceTree = "<group>"; };
+		279E4B872899A43300355840 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		279E4B8B2899B0D600355840 /* MIDIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIHandler.swift; sourceTree = "<group>"; };
 		27E3EBD22898B17C00D5FB55 /* musicbridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musicbridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeApp.swift; sourceTree = "<group>"; };
 		27E3EBD72898B17C00D5FB55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -63,6 +68,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				279E4B962899D13000355840 /* WebMIDIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,6 +100,23 @@
 			path = applescript;
 			sourceTree = "<group>";
 		};
+		279E4B892899AF2C00355840 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				27E3EBD72898B17C00D5FB55 /* ContentView.swift */,
+				279E4B872899A43300355840 /* Settings.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		279E4B8A2899B0C600355840 /* MIDI */ = {
+			isa = PBXGroup;
+			children = (
+				279E4B8B2899B0D600355840 /* MIDIHandler.swift */,
+			);
+			path = MIDI;
+			sourceTree = "<group>";
+		};
 		27E3EBC92898B17C00D5FB55 = {
 			isa = PBXGroup;
 			children = (
@@ -118,10 +141,11 @@
 		27E3EBD42898B17C00D5FB55 /* musicbridge */ = {
 			isa = PBXGroup;
 			children = (
+				279E4B8A2899B0C600355840 /* MIDI */,
+				279E4B892899AF2C00355840 /* View */,
 				279E4B8028997D2B00355840 /* applescript */,
 				27E3EC002898B2A200D5FB55 /* Info.plist */,
 				27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */,
-				27E3EBD72898B17C00D5FB55 /* ContentView.swift */,
 				27E3EBD92898B17E00D5FB55 /* Assets.xcassets */,
 				27E3EBDE2898B17E00D5FB55 /* musicbridge.entitlements */,
 				27E3EBDB2898B17E00D5FB55 /* Preview Content */,
@@ -178,6 +202,9 @@
 			dependencies = (
 			);
 			name = musicbridge;
+			packageProductDependencies = (
+				279E4B952899D13000355840 /* WebMIDIKit */,
+			);
 			productName = musicbridge;
 			productReference = 27E3EBD22898B17C00D5FB55 /* musicbridge.app */;
 			productType = "com.apple.product-type.application";
@@ -250,6 +277,9 @@
 				Base,
 			);
 			mainGroup = 27E3EBC92898B17C00D5FB55;
+			packageReferences = (
+				279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */,
+			);
 			productRefGroup = 27E3EBD32898B17C00D5FB55 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -297,6 +327,8 @@
 				27E3EBD82898B17C00D5FB55 /* ContentView.swift in Sources */,
 				279E4B8228997D8F00355840 /* applemusicdown.applescript in Sources */,
 				279E4B7D28997BE800355840 /* applemusicup.applescript in Sources */,
+				279E4B882899A43300355840 /* Settings.swift in Sources */,
+				279E4B8C2899B0D600355840 /* MIDIHandler.swift in Sources */,
 				27E3EBD62898B17C00D5FB55 /* musicbridgeApp.swift in Sources */,
 				27E3EC082898BB1F00D5FB55 /* func.swift in Sources */,
 			);
@@ -614,6 +646,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/adamnemecek/WebMIDIKit.git";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		279E4B952899D13000355840 /* WebMIDIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */;
+			productName = WebMIDIKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 27E3EBCA2898B17C00D5FB55 /* Project object */;
 }

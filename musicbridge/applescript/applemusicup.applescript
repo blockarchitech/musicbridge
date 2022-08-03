@@ -6,7 +6,7 @@ tell application "Music"
         repeat
             repeat with i from snd to 100 by 1
                 set the sound volume to i
-                delay 0.1
+                delay 0.01
             end repeat
             exit repeat
         end repeat

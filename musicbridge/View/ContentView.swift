@@ -26,10 +26,29 @@ struct ContentView: View {
                     Label("Send Spotify Down", systemImage: "pianokeys")
                 }
             .padding(1)
+            Button(action: appleMusicUp) {
+                    Label("Send AM Up", systemImage: "pianokeys")
+                }
+            .padding(10)
+            Button(action: appleMusicDown) {
+                    Label("Send AM Down", systemImage: "pianokeys")
+                }
+            .padding(1)
             
+        }
+        .toolbar {
+            
+            Button(action: openSettingsView) {
+                Label("Settings", systemImage: "gear")
+            }
+            Button(action: midiTest) {
+                Label("midi sucks", systemImage: "pianokeys")
+            }
+        
         }
         
     }
+        
 }
 
 struct ContentView_Previews: PreviewProvider {
