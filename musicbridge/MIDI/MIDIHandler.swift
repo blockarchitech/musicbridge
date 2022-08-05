@@ -15,8 +15,8 @@ let inputPort: MIDIInput? = midi.inputs.prompt()
 func midiTest() {
     inputPort?.onMIDIMessage = { (list: UnsafePointer<MIDIPacketList>) in
         for packet in list {
-            print("received \(packet)")
-            // somehow read packet
+            print(packet)
+            print("\(packet.pointee.message)")
         }
 		
     }
