@@ -8,16 +8,20 @@
 import SwiftUI
 
 
+
 struct ContentView: View {
+    
     var body: some View {
         VStack {
+            
             Image(systemName: "music.note")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("musicbridge")
                 .font(.system(size: 20))
                 .bold()
-            Text("Stupid MIDI to AppleScript converter")
+            Text("MIDI to AppleScript converter")
+            Text("Using input:")
             Button(action: spotifyUp) {
                     Label("Send Spotify Up", systemImage: "pianokeys")
                 }
@@ -38,13 +42,10 @@ struct ContentView: View {
         }
         .toolbar {
             
-            Button(action: openSettingsView) {
-                Label("Settings", systemImage: "gear")
+            Button(action: midiLoop) {
+                Label("Start MIDI Loop", systemImage: "play")
             }
-            Button(action: midiTest) {
-                Label("midi sucks", systemImage: "pianokeys")
-            }
-        
+            
         }
         
     }

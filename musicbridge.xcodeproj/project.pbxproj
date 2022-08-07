@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2779880A289DB1840021968A /* Gong in Frameworks */ = {isa = PBXBuildFile; productRef = 27798809289DB1840021968A /* Gong */; };
 		279E4B7D28997BE800355840 /* applemusicup.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B7C28997BE800355840 /* applemusicup.applescript */; };
 		279E4B7F28997CEE00355840 /* spotifyup.applescript in Resources */ = {isa = PBXBuildFile; fileRef = 279E4B7E28997CEE00355840 /* spotifyup.applescript */; };
 		279E4B8228997D8F00355840 /* applemusicdown.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B8128997D8F00355840 /* applemusicdown.applescript */; };
@@ -69,6 +70,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				279E4B962899D13000355840 /* WebMIDIKit in Frameworks */,
+				2779880A289DB1840021968A /* Gong in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -200,10 +202,12 @@
 			buildRules = (
 			);
 			dependencies = (
+				27798807289DB13D0021968A /* PBXTargetDependency */,
 			);
 			name = musicbridge;
 			packageProductDependencies = (
 				279E4B952899D13000355840 /* WebMIDIKit */,
+				27798809289DB1840021968A /* Gong */,
 			);
 			productName = musicbridge;
 			productReference = 27E3EBD22898B17C00D5FB55 /* musicbridge.app */;
@@ -279,6 +283,7 @@
 			mainGroup = 27E3EBC92898B17C00D5FB55;
 			packageReferences = (
 				279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */,
+				27798808289DB1840021968A /* XCRemoteSwiftPackageReference "Gong" */,
 			);
 			productRefGroup = 27E3EBD32898B17C00D5FB55 /* Products */;
 			projectDirPath = "";
@@ -354,6 +359,10 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		27798807289DB13D0021968A /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			productRef = 27798806289DB13D0021968A /* WebMIDIKit */;
+		};
 		27E3EBE52898B17E00D5FB55 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 27E3EBD12898B17C00D5FB55 /* musicbridge */;
@@ -648,6 +657,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		27798808289DB1840021968A /* XCRemoteSwiftPackageReference "Gong" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/dclelland/Gong";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
 		279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamnemecek/WebMIDIKit.git";
@@ -659,6 +676,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		27798806289DB13D0021968A /* WebMIDIKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */;
+			productName = WebMIDIKit;
+		};
+		27798809289DB1840021968A /* Gong */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 27798808289DB1840021968A /* XCRemoteSwiftPackageReference "Gong" */;
+			productName = Gong;
+		};
 		279E4B952899D13000355840 /* WebMIDIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */;

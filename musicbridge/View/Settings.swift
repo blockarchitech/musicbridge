@@ -21,12 +21,21 @@ struct AdvancedSettingsView: View {
     @State private var delaytime: String = ""
 
     var body: some View {
-        TextField(
-                "Delay Time",
-                text: $delaytime
-            )
-        .padding(20)
-        .frame(width: 350, height: 100)
+        VStack {
+            
+            Text("MIDI Up: \(midiUP)")
+            Text("MIDI Down: \(midiDOWN)")
+            Button {
+                learnMIDIUP()
+            } label: {
+                Label("Learn UP", systemImage: "pianokeys")
+            }
+            Button {
+                learnMIDIDOWN()
+            } label: {
+                Label("Learn DOWN", systemImage: "pianokeys")
+            }
+        }
     }
 }
 
