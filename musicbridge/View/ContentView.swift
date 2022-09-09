@@ -38,12 +38,15 @@ struct ContentView: View {
                     Label("Send AM Down", systemImage: "pianokeys")
                 }
             .padding(1)
-            
+            Label("\(up)", systemImage: "pianokeys")
         }
         .toolbar {
             
-            Button(action: midiLoop) {
+            Button(action: testMIDI) {
                 Label("Start MIDI Loop", systemImage: "play")
+            }
+            Button(action: learnUp) {
+                Label("Attempt to learn up", systemImage: "arrow.up")
             }
             
         }

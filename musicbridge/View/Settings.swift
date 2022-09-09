@@ -9,31 +9,28 @@ import SwiftUI
 import Gong
 struct GeneralSettingsView: View {
     var body: some View {
-        Text("Placeholder 350x100")
+        Text("up: \(up)")
             .padding(20)
             .frame(width: 350, height: 100)
     }
 }
 
 struct AdvancedSettingsView: View {
-    @AppStorage("showPreview") private var showPreview = true
-    @AppStorage("fontSize") private var fontSize = 12.0
-    @State private var delaytime: String = ""
 
     var body: some View {
         VStack {
-            
-            Text("MIDI Up: \(midiUP)")
-            Text("MIDI Down: \(midiDOWN)")
+
+            Text("MIDI Up: \(up)")
+            Text("MIDI Down: \(down)")
             Button {
-                learnMIDIUP()
+                learnUp()
             } label: {
-                Label("Learn UP", systemImage: "pianokeys")
+                Label("Learn up", systemImage: "pianokeys")
             }
             Button {
-                learnMIDIDOWN()
+                learnDown()
             } label: {
-                Label("Learn DOWN", systemImage: "pianokeys")
+                Label("Learn down", systemImage: "pianokeys")
             }
         }
     }
@@ -59,7 +56,7 @@ struct SettingsView: View {
                 .tag(Tabs.general)
             AdvancedSettingsView()
                 .tabItem {
-                    Label("Advanced", systemImage: "star")
+                    Label("MIDI", systemImage: "pianokeys")
                 }
                 .tag(Tabs.advanced)
         }

@@ -113,14 +113,3 @@ func appleMusicDown() {
     
     task.launch()
 }
-
-func openSettingsView() {
-    let task = Process()
-    task.launchPath = "/usr/bin/osascript"
-    task.arguments = ["""
-    -e
-    tell application "System Events" to keystroke "," using {command down}
-    """]
-    
-    task.launch()
-}
