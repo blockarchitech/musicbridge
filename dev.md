@@ -4,7 +4,7 @@ Mostly for me to track repetitive stuff I do
 
 ## Calculating Fadetimes 
 
-Stupid simple. All you do is $f={x \over 100}$ Where $f$ is your fadetime and $x$ is your simple value.
+Stupid simple. All you do is $f={x \over 100}$ Where $f$ is your fadetime and $x$ is your simple value (in seconds because I can't be bothered to use ms).
 
 ## Basic Spotify AppleScript keys
 
