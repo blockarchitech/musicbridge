@@ -20,12 +20,12 @@ end tell
 
 Use `sound volume` to explain volume cues. Good way of doing this:
 ```applescript
-set volumespotify to the sound volume
+set vol to the sound volume
 ```
 
 Basic Music Fade:
 ```applescript
-repeat with i from volumespotify to 0 by -1
+repeat with i from vol to 0 by -1
     set the sound volume to i
     delay 0.01
 end repeat
