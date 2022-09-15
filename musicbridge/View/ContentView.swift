@@ -41,13 +41,28 @@ struct ContentView: View {
             Label("\(up)", systemImage: "pianokeys")
         }
         .toolbar {
+            HStack {
+                
+                
+                
+                Button(action: spotifyUp) {
+                    Label("Spotify UP", systemImage: "arrow.up")
+                }
+                Button(action: spotifyDown) {
+                    Label("Spotify DOWN", systemImage: "arrow.down")
+                }
+                
+                Divider()
+                
+                Button(action: testMIDI) {
+                    Label("Start MIDI Loop", systemImage: "play")
+                }
+                
+
+                
+                
+            }
             
-            Button(action: testMIDI) {
-                Label("Start MIDI Loop", systemImage: "play")
-            }
-            Button(action: learnUp) {
-                Label("Attempt to learn up", systemImage: "arrow.up")
-            }
             
         }
         

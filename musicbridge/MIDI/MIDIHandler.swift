@@ -8,75 +8,8 @@
 import Cocoa
 import CoreMIDI
 
-
-//func getDisplayName(_ obj: MIDIObjectRef) -> String
-//{
-//    var param: Unmanaged<CFString>?
-//    var name: String = "Error"
-//
-//    let err: OSStatus = MIDIObjectGetStringProperty(obj, kMIDIPropertyDisplayName, &param)
-//    if err == OSStatus(noErr)
-//    {
-//        name =  param!.takeRetainedValue() as String
-//    }
-//
-//    return name
-//}
-//
-//func getDestinationNames() -> [String]
-//{
-//    var names:[String] = [];
-//
-//    let count: Int = MIDIGetNumberOfDestinations();
-//    for i in 0..<count {
-//        let endpoint:MIDIEndpointRef = MIDIGetDestination(i);
-//
-//        if (endpoint != 0)
-//        {
-//            names.append(getDisplayName(endpoint));
-//        }
-//    }
-//    return names;
-//}
-//
-//func getSourceNames() -> [String]
-//{
-//    var names:[String] = [];
-//
-//    let count: Int = MIDIGetNumberOfSources();
-//    for i in 0..<count {
-//        let endpoint:MIDIEndpointRef = MIDIGetSource(i);
-//        if (endpoint != 0)
-//        {
-//            names.append(getDisplayName(endpoint));
-//        }
-//    }
-//    return names;
-//}
-//
-//func testMIDI() {
-//    let destNames = getDestinationNames();
-//
-//    print("Number of MIDI Destinations: \(destNames.count)");
-//    for destName in destNames
-//    {
-//        print("  Destination: \(destName)");
-//    }
-//
-//    let sourceNames = getSourceNames();
-//
-//    print("\nNumber of MIDI Sources: \(sourceNames.count)");
-//    for sourceName in sourceNames
-//    {
-//        print("  Source: \(sourceName)");
-//    }
-//
-//}
-
-//import Cocoa
-//import CoreMIDI
-//import PlaygroundSupport
-
+// this is actually very useful and might use it in *something*
+// right now this file is basically only for testing
 func getDisplayName(_ obj: MIDIObjectRef) -> String
 {
     var param: Unmanaged<CFString>?
@@ -91,7 +24,7 @@ func getDisplayName(_ obj: MIDIObjectRef) -> String
     return name
 }
 
-func MyMIDIReadProc(pktList: UnsafePointer<MIDIPacketList>,
+func test_MIDIReadProc(pktList: UnsafePointer<MIDIPacketList>,
                     readProcRefCon: UnsafeMutableRawPointer?, srcConnRefCon: UnsafeMutableRawPointer?) -> Void
 {
     let packetList:MIDIPacketList = pktList.pointee
@@ -119,32 +52,24 @@ func MyMIDIReadProc(pktList: UnsafePointer<MIDIPacketList>,
         }
         
         print(dumpStr)
+        if (dumpStr == "$80 $00 $40 ") {
+            // do this when demo MIDI trigger
+            spotifyUp()
+        } else if (dumpStr == "$80 $00 $00 ") {
+            spotifyDown()
+        }
         packet = MIDIPacketNext(&packet).pointee
     }
 }
 
 func testMIDI() {
+    // quick demo to assemble MIDI and start the task loop.
     var midiClient: MIDIClientRef = 0
     var inPort:MIDIPortRef = 0
     var src:MIDIEndpointRef = MIDIGetSource(0)
 
     MIDIClientCreate("MidiTestClient" as CFString, nil, nil, &midiClient)
-    MIDIInputPortCreate(midiClient, "MidiTest_InPort" as CFString, MyMIDIReadProc, nil, &inPort)
+    MIDIInputPortCreate(midiClient, "MidiTest_InPort" as CFString, test_MIDIReadProc, nil, &inPort)
 
     MIDIPortConnectSource(inPort, src, &src)
 }
-
-
-
-//public var up = ""
-//
-//func learnUp() {
-//    var midiClient: MIDIClientRef = 0
-//    var inPort:MIDIPortRef = 0
-//    var src:MIDIEndpointRef = MIDIGetSource(0)
-//    MIDIClientCreate("MidiTestClient" as CFString, nil, nil, &midiClient)
-//    MIDIInputPortCreate(midiClient, "MidiTest_InPort" as CFString, MyMIDIReadProc, nil, &inPort)
-//    MIDIPortConnectSource(inPort, src, &src)
-//
-//}
-

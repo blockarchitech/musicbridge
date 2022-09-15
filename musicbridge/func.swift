@@ -12,6 +12,7 @@ import Foundation
 
 func spotifyUp() {
     let task = Process()
+    print("spotify up trigger")
     task.launchPath = "/usr/bin/osascript"
     task.arguments = ["""
     -e
