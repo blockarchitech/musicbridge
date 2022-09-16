@@ -10,78 +10,41 @@ import SwiftUI
 
 
 struct ContentView: View {
-    
+
+
     var body: some View {
-        
+        // musicbridge icon + logo
         VStack {
             
             Image(systemName: "music.note")
                 .imageScale(.large)
                 .foregroundColor(.accentColor)
             Text("musicbridge")
-                .font(.system(size: 20))
+                .font(Font.title)
                 .bold()
         }
-        Divider()
+        // divide content from icon+logo
+        // Main content vstack
         VStack {
-            HStack {
-                Text("Development Controls")
-                    .bold()
-                    .font(.system(size:15))
-                VStack {
-                    Button(action: spotifyUp) {
-                        Label("Send Spotify Up", systemImage: "pianokeys")
-                    }
-                    .padding(10)
-                    Button(action: spotifyDown) {
-                        Label("Send Spotify Down", systemImage: "pianokeys")
-                    }
-                    .padding(1)
-                }
-                VStack {
-                    Button(action: appleMusicUp) {
-                        Label("Send AM Up", systemImage: "pianokeys")
-                    }
-                    .padding(10)
-                    Button(action: appleMusicDown) {
-                        Label("Send AM Down", systemImage: "pianokeys")
-                    }
-                    .padding(1)
-                }
-            }
-            Divider()
-            HStack {
-                Text("MIDI Settings")
-                    .bold()
-                    .font(.system(size:15))
+            Text("Press the play button to begin.")
+                .bold()
+                .font(Font.subheadline)
+            Text("Ensure settings are correct. CMD+, to set settings.")
+                .font(Font.caption)
 
-                Text("Placeholder 100x75")
-                    .frame(width: 100, height: 75)
-            }
-            Divider()
-            HStack {
-                Text("General Settings")
-                    .bold()
-                    .font(.system(size:15))
-
-                Text("Placeholder 100x75")
-                    .frame(width: 100, height: 75)
-            }
-            Divider()
         }
-        
-        
-        
+
+        // Toolbar Content
         .toolbar {
             HStack {
                 
                 
                 
-                Button(action: spotifyUp) {
-                    Label("Spotify UP", systemImage: "arrow.up")
+                Button(action: musicUp) {
+                    Label("UP", systemImage: "arrow.up")
                 }
-                Button(action: spotifyDown) {
-                    Label("Spotify DOWN", systemImage: "arrow.down")
+                Button(action: musicDown) {
+                    Label("DOWN", systemImage: "arrow.down")
                 }
                 
                 Divider()

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		276873CE28D4B37D006269A8 /* PlayerSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */; };
 		279B6F4828CB7C8A000DD870 /* learnup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279B6F4728CB7C8A000DD870 /* learnup.swift */; };
 		279B6F4A28CB828A000DD870 /* learndown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279B6F4928CB828A000DD870 /* learndown.swift */; };
 		279E4B7D28997BE800355840 /* applemusicup.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B7C28997BE800355840 /* applemusicup.applescript */; };
@@ -22,7 +23,7 @@
 		27E3EBE82898B17E00D5FB55 /* musicbridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBE72898B17E00D5FB55 /* musicbridgeTests.swift */; };
 		27E3EBF22898B17E00D5FB55 /* musicbridgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBF12898B17E00D5FB55 /* musicbridgeUITests.swift */; };
 		27E3EBF42898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBF32898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift */; };
-		27E3EC082898BB1F00D5FB55 /* func.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EC072898BB1F00D5FB55 /* func.swift */; };
+		27E3EC082898BB1F00D5FB55 /* PlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EC072898BB1F00D5FB55 /* PlayerControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +44,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSwitcher.swift; sourceTree = "<group>"; };
 		279B6F4728CB7C8A000DD870 /* learnup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = learnup.swift; sourceTree = "<group>"; };
 		279B6F4928CB828A000DD870 /* learndown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = learndown.swift; sourceTree = "<group>"; };
 		279E4B7C28997BE800355840 /* applemusicup.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = applemusicup.applescript; sourceTree = "<group>"; };
@@ -63,7 +65,7 @@
 		27E3EBF12898B17E00D5FB55 /* musicbridgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeUITests.swift; sourceTree = "<group>"; };
 		27E3EBF32898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		27E3EC002898B2A200D5FB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		27E3EC072898BB1F00D5FB55 /* func.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = func.swift; sourceTree = "<group>"; };
+		27E3EC072898BB1F00D5FB55 /* PlayerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -91,7 +93,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		279E4B8028997D2B00355840 /* applescript */ = {
+		276873CC28D4B326006269A8 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				27E3EC072898BB1F00D5FB55 /* PlayerControl.swift */,
+				279E4B8028997D2B00355840 /* AppleScript */,
+				276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */,
+			);
+			path = Music;
+			sourceTree = "<group>";
+		};
+		279E4B8028997D2B00355840 /* AppleScript */ = {
 			isa = PBXGroup;
 			children = (
 				279E4B7C28997BE800355840 /* applemusicup.applescript */,
@@ -99,7 +111,7 @@
 				279E4B8128997D8F00355840 /* applemusicdown.applescript */,
 				279E4B8328997E1700355840 /* spotifydown.applescript */,
 			);
-			path = applescript;
+			path = AppleScript;
 			sourceTree = "<group>";
 		};
 		279E4B892899AF2C00355840 /* View */ = {
@@ -145,15 +157,14 @@
 		27E3EBD42898B17C00D5FB55 /* musicbridge */ = {
 			isa = PBXGroup;
 			children = (
+				276873CC28D4B326006269A8 /* Music */,
 				279E4B8A2899B0C600355840 /* MIDI */,
 				279E4B892899AF2C00355840 /* View */,
-				279E4B8028997D2B00355840 /* applescript */,
 				27E3EC002898B2A200D5FB55 /* Info.plist */,
 				27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */,
 				27E3EBD92898B17E00D5FB55 /* Assets.xcassets */,
 				27E3EBDE2898B17E00D5FB55 /* musicbridge.entitlements */,
 				27E3EBDB2898B17E00D5FB55 /* Preview Content */,
-				27E3EC072898BB1F00D5FB55 /* func.swift */,
 			);
 			path = musicbridge;
 			sourceTree = "<group>";
@@ -330,12 +341,13 @@
 				279E4B8428997E1700355840 /* spotifydown.applescript in Sources */,
 				27E3EBD82898B17C00D5FB55 /* ContentView.swift in Sources */,
 				279E4B8228997D8F00355840 /* applemusicdown.applescript in Sources */,
+				276873CE28D4B37D006269A8 /* PlayerSwitcher.swift in Sources */,
 				279E4B7D28997BE800355840 /* applemusicup.applescript in Sources */,
 				279E4B882899A43300355840 /* Settings.swift in Sources */,
 				279E4B8C2899B0D600355840 /* MIDIHandler.swift in Sources */,
 				279B6F4828CB7C8A000DD870 /* learnup.swift in Sources */,
 				27E3EBD62898B17C00D5FB55 /* musicbridgeApp.swift in Sources */,
-				27E3EC082898BB1F00D5FB55 /* func.swift in Sources */,
+				27E3EC082898BB1F00D5FB55 /* PlayerControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

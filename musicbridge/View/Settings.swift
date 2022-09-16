@@ -8,31 +8,77 @@
 import SwiftUI
 import Gong
 struct GeneralSettingsView: View {
-    var body: some View {
-        Text("up: \(up)")
-            .padding(20)
-            .frame(width: 350, height: 100)
+    enum Players: String, CaseIterable, Identifiable {
+        case spotify, am
+        var id: Self { self }
     }
+
+    @State private var selectedFlavor: Players = .spotify
+    @State var speed = 5.0
+    @State var isEditing = false
+    var body: some View {
+        VStack {
+            Slider(
+                value: $speed,
+                in: 0...5,
+                step: 0.75
+            ) {
+                Text("Fade Time")
+            } minimumValueLabel: {
+                Text("0s")
+            } maximumValueLabel: {
+                Text("5s")
+            } onEditingChanged: { editing in
+                storeSliderValue(sliderval: speed)
+                isEditing = editing
+            }
+            Text(
+                String(format: "%.2f", speed)
+            )
+                .foregroundColor(isEditing ? .red : .blue)
+            
+            Divider()
+            
+            List {
+                Picker("Player", selection: $selectedFlavor) {
+                    Text("Spotify").tag(Players.spotify)
+                    Text("Apple Music").tag(Players.am)
+                }
+                .onChange(of: selectedFlavor) { tag in
+                    print("tag: \(tag)")
+                    setPlayerTag(settag: tag)
+                }
+            }
+//                Text("Current player: \(Player)")
+        }
+    }
+    func setPlayer() { }
+
 }
 
 struct AdvancedSettingsView: View {
-
     var body: some View {
         VStack {
-
-            Text("MIDI Up: \(up)")
-            Text("MIDI Down: \(down)")
-            Button {
+            Text("MIDI Up Message: \(up)")
+            Text("MIDI Down Message: \(down)")
+            Button("Learn MIDI Up") {
                 learnUp()
-            } label: {
-                Label("Learn up", systemImage: "pianokeys")
             }
-            Button {
+            Button("Learn MIDI Down") {
                 learnDown()
-            } label: {
-                Label("Learn down", systemImage: "pianokeys")
             }
+            Divider()
+            Text("Due to limitations of SwiftUI, ")
+                .font(Font.footnote)
+                .fixedSize(horizontal: true, vertical: false)
+            Text("Please close and re-open the settings ")
+                .font(Font.footnote)
+                .fixedSize(horizontal: true, vertical: false)
+            Text("window after you have learned your command.")
+                .font(Font.footnote)
+                .fixedSize(horizontal: true, vertical: false)
         }
+
     }
 }
 

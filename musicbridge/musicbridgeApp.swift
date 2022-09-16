@@ -8,8 +8,8 @@
 import SwiftUI
 import Foundation
 
-let width = CGFloat(500)
-let height = CGFloat(300)
+let width = CGFloat(450)
+let height = CGFloat(250)
 
 @main
 struct musicbridgeApp: App {

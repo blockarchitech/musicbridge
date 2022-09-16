@@ -1,18 +1,24 @@
 //
-//  func.swift
+//  PlayerControl.swift
 //  musicbridge
 //
 //  Created by blockarchitech on 8/1/22.
 //
 
 import Foundation
-
+public var vlu: Double = 0
 // QUICK NOTE TO CONTRIBUTORS:
 // Please edit the .applescript files if you are editing any of this applescript aswell.
+
+// no idea if i'm just stupid or if this is actually needed
+func storeSliderValue(sliderval: Double) {
+    vlu = sliderval
+}
 
 func spotifyUp() {
     let task = Process()
     print("spotify up trigger")
+    print(vlu)
     task.launchPath = "/usr/bin/osascript"
     task.arguments = ["""
     -e
@@ -29,7 +35,7 @@ func spotifyUp() {
         repeat
             repeat with i from volumespotify to 100 by 1
                 set the sound volume to i
-                delay 0.01
+                delay \(vlu / 100)
             end repeat
             exit repeat
         end repeat
