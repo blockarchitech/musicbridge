@@ -6,7 +6,7 @@
 //
 
 import SwiftUI
-import Gong
+
 struct GeneralSettingsView: View {
     enum Players: String, CaseIterable, Identifiable {
         case spotify, am
@@ -61,12 +61,13 @@ struct AdvancedSettingsView: View {
         VStack {
             Text("MIDI Up Message: \(up)")
             Text("MIDI Down Message: \(down)")
-            Button("Learn MIDI Up") {
-                learnUp()
-            }
-            Button("Learn MIDI Down") {
-                learnDown()
-            }
+            Text("TODO: Fix this")
+//            Button("Learn MIDI Up") {
+//                learnUp()
+//            }
+//            Button("Learn MIDI Down") {
+//                learnDown()
+//            }
             Divider()
             Text("Due to limitations of SwiftUI, ")
                 .font(Font.footnote)

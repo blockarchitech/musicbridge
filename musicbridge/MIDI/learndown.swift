@@ -70,7 +70,7 @@ func learnDown() {
     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
         print("DISPATCH DELAY SET; DISPOSING CLIENT AND ENDPOINT")
         MIDIClientDispose(midiClient)
-        MIDIEndpointDispose(src)
+//        MIDIEndpointDispose(src)
         return;
     }
 }

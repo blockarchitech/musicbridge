@@ -69,8 +69,8 @@ func learnUp() {
     MIDIPortConnectSource(inPort, src, &src)
     DispatchQueue.main.asyncAfter(deadline: .now() + 5.0) {
         print("DISPATCH DELAY SET; DISPOSING CLIENT AND ENDPOINT")
-        MIDIClientDispose(midiClient)
-        MIDIEndpointDispose(src)
+//        MIDIClientDispose(midiClient)
+//        MIDIEndpointDispose(src)
         return;
     }
 }
