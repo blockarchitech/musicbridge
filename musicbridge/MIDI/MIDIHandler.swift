@@ -52,10 +52,9 @@ func test_MIDIReadProc(pktList: UnsafePointer<MIDIPacketList>,
         }
         
         print(dumpStr)
-        if (dumpStr == up) {
-            // do this when demo MIDI trigger
+        if (dumpStr == "$80 $00 $00 ") {
             musicUp()
-        } else if (dumpStr == down) {
+        } else if (dumpStr == "$80 $00 $40 ") {
             musicDown()
         }
         packet = MIDIPacketNext(&packet).pointee
