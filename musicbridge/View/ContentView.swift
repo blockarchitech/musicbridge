@@ -49,7 +49,9 @@ struct ContentView: View {
                 
                 Divider()
                 
-                Button(action: testMIDI) {
+                Button(action: {
+                    print("button")
+                }) {
                     Label("Start MIDI Loop", systemImage: "play")
                 }
                 

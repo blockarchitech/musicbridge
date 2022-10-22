@@ -59,25 +59,7 @@ struct GeneralSettingsView: View {
 struct AdvancedSettingsView: View {
     var body: some View {
         VStack {
-            Text("MIDI Up Message: \(up)")
-            Text("MIDI Down Message: \(down)")
-            Text("TODO: Fix this")
-//            Button("Learn MIDI Up") {
-//                learnUp()
-//            }
-//            Button("Learn MIDI Down") {
-//                learnDown()
-//            }
-            Divider()
-            Text("Due to limitations of SwiftUI, ")
-                .font(Font.footnote)
-                .fixedSize(horizontal: true, vertical: false)
-            Text("Please close and re-open the settings ")
-                .font(Font.footnote)
-                .fixedSize(horizontal: true, vertical: false)
-            Text("window after you have learned your command.")
-                .font(Font.footnote)
-                .fixedSize(horizontal: true, vertical: false)
+            Text("nope, not today")
         }
 
     }
