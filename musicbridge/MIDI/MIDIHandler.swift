@@ -1,42 +1,44 @@
 //
-//  MIDIHandler.swift
-//  musicbridge
+// MIDIHandler.swift
+// Created by blockarchitech on 10/23/22
 //
-//  Created by blockarchitech on 8/2/22.
-//
+
 import Foundation
 import MIDIKitIO
 
-public class MIDIModule {
-    private let midiManager = MIDIManager(
-        clientName: "musicbridgeclient",
-        model: "musicbridge",
-        manufacturer: "blockarchitech")
-    
-    let inputTag = "musicbridge_listener"
-    
-    public init() {
-        do {
-            try midiManager.start()
-            
-            try midiManager.addInput(
-                name: "musicbridge listener",
-                tag: inputTag,
-                uniqueID: .userDefaultsManaged(key: inputTag),
-                receiver: .events { [weak self] events in
-                    // Note: this handler will be called on a background thread
-                    // so call the next line on main if it may result in UI updates
-                    DispatchQueue.main.async {
-                        events.forEach { self?.received(midiEvent: $0) }
-                    }
-                }
-            )
-        } catch {
-            print("MIDI Setup Error:", error)
+// Variables
+public var learning = "up"
+public var up = ""
+public var down = ""
+
+// MIDI Reciever; For init see "musicbridgeApp.swift".
+func received(midiEvent: MIDIEvent) {
+    switch learning {
+    case "up":
+        switch midiEvent {
+        case .noteOn(let payload):
+            print("Up Note: \(payload.note) \(payload.velocity.midi1Value)")
+            up = "\(payload.note) \(payload.velocity.midi1Value)"
+            break
+        case .noteOff(let payload):
+            print("Up Note: \(payload.note) \(payload.velocity.midi1Value)")
+            up = "\(payload.note) \(payload.velocity.midi1Value)"
+            break
+        default: break
         }
-    }
-    
-    private func received(midiEvent: MIDIEvent) {
+    case "down":
+        switch midiEvent {
+        case .noteOn(let payload):
+            print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
+            down = "\(payload.note) \(payload.velocity.midi1Value)"
+            break
+        case .noteOff(let payload):
+            print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
+            down = "\(payload.note) \(payload.velocity.midi1Value)"
+            break
+        default: break
+        }
+    case "no":
         switch midiEvent {
         case .noteOn(let payload):
             print("Note On:", payload.note, payload.velocity, payload.channel)
@@ -45,9 +47,11 @@ public class MIDIModule {
         case .cc(let payload):
             print("CC:", payload.controller, payload.value, payload.channel)
         case .programChange(let payload):
-            print("Program Change:", payload.program, payload.channel)            
+            print("Program Change:", payload.program, payload.channel)
         default:
             break
         }
+    default:
+        break
     }
 }
