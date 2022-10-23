@@ -11,7 +11,7 @@ import MIDIKit
 
 let width = CGFloat(450)
 let height = CGFloat(250)
-
+var enginestatus = ""
 @main
 struct musicbridgeApp: App {
     let midiManager = MIDIManager(
@@ -25,9 +25,12 @@ struct musicbridgeApp: App {
     init() {
         do {
             print("Starting MIDI services.")
+            enginestatus = "running"
             try midiManager.start()
+            
         } catch {
             print("Error starting MIDI services:", error.localizedDescription)
+            enginestatus = "stopped"
         }
     
         do {
@@ -51,8 +54,7 @@ struct musicbridgeApp: App {
             ContentView().frame(minWidth: width, maxWidth: width, minHeight: height, maxHeight: height, alignment: .center)
         }
         Settings {
-                    SettingsView()
-                }
+            SettingsView()
+        }
     }
-    
 }

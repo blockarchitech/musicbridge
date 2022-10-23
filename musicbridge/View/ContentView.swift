@@ -20,7 +20,7 @@ struct ContentView: View {
                 .bold()
         }
         VStack {
-            Text("Press the play button to begin.")
+            Text("Active. Engine is \(enginestatus).")
                 .bold()
                 .font(Font.subheadline)
             Text("Ensure settings are correct. CMD+, to set settings.")
@@ -33,12 +33,6 @@ struct ContentView: View {
                 }
                 Button(action: musicDown) {
                     Label("DOWN", systemImage: "arrow.down")
-                }
-                Divider()
-                Button(action: {
-                    print("abc")
-                }) {
-                    Label("Start MIDI Loop", systemImage: "play")
                 }
             }
         }

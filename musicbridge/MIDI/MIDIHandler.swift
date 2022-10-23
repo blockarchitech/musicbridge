@@ -7,51 +7,63 @@ import Foundation
 import MIDIKitIO
 
 // Variables
-public var learning = "up"
-public var up = ""
-public var down = ""
+var learning = 0
+var up = ""
+var down = ""
 
 // MIDI Reciever; For init see "musicbridgeApp.swift".
 func received(midiEvent: MIDIEvent) {
     switch learning {
-    case "up":
+    case 1:
         switch midiEvent {
         case .noteOn(let payload):
             print("Up Note: \(payload.note) \(payload.velocity.midi1Value)")
             up = "\(payload.note) \(payload.velocity.midi1Value)"
-            break
+            learning = 0
+            
         case .noteOff(let payload):
             print("Up Note: \(payload.note) \(payload.velocity.midi1Value)")
             up = "\(payload.note) \(payload.velocity.midi1Value)"
-            break
-        default: break
+            learning = 0
+            
+        default: print("h1")
         }
-    case "down":
+    case 2:
         switch midiEvent {
         case .noteOn(let payload):
             print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             down = "\(payload.note) \(payload.velocity.midi1Value)"
-            break
+            learning = 0
         case .noteOff(let payload):
             print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             down = "\(payload.note) \(payload.velocity.midi1Value)"
-            break
-        default: break
+            learning = 0
+        default: print("h2")
         }
-    case "no":
+    case 0:
         switch midiEvent {
         case .noteOn(let payload):
             print("Note On:", payload.note, payload.velocity, payload.channel)
+            if ("\(payload.note) \(payload.velocity.midi1Value)" == up) {
+                musicUp()
+            } else if ("\(payload.note) \(payload.velocity.midi1Value)" == down) {
+                musicDown()
+            }
         case .noteOff(let payload):
             print("Note Off:", payload.note, payload.velocity, payload.channel)
+            if ("\(payload.note) \(payload.velocity.midi1Value)" == up) {
+                musicUp()
+            } else if ("\(payload.note) \(payload.velocity.midi1Value)" == down) {
+                musicDown()
+            }
         case .cc(let payload):
             print("CC:", payload.controller, payload.value, payload.channel)
         case .programChange(let payload):
             print("Program Change:", payload.program, payload.channel)
         default:
-            break
+            print("h3")
         }
     default:
-        break
+        print("h4")
     }
 }

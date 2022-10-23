@@ -12,7 +12,6 @@ struct GeneralSettingsView: View {
         case spotify, am
         var id: Self { self }
     }
-
     @State private var selectedFlavor: Players = .spotify
     @State var speed = 5.0
     @State var isEditing = false
@@ -49,29 +48,25 @@ struct GeneralSettingsView: View {
                     setPlayerTag(settag: tag)
                 }
             }
-//                Text("Current player: \(Player)")
         }
     }
     func setPlayer() { }
-
 }
-
 struct AdvancedSettingsView: View {
     var body: some View {
         VStack {
-            Text("nope, not today")
+            Text("Up: \(up)")
+            Text("Down: \(down)")
+            Divider()
+            Button("Learn Up") {
+                learning = 1
+            }
+            Button("Learn Down") {
+                learning = 2
+            }
         }
-
     }
 }
-
-//struct MIDIListView: View {
-//    @AppStorage("chosendevice") private var showPreview = true
-//    var body: some View {
-//
-//    }
-//}
-
 struct SettingsView: View {
     private enum Tabs: Hashable {
         case general, advanced
@@ -93,7 +88,6 @@ struct SettingsView: View {
         .frame(width: 375, height: 150)
     }
 }
-
 struct Settings_Previews: PreviewProvider {
     static var previews: some View {
         SettingsView()

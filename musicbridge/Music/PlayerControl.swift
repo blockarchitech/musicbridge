@@ -62,7 +62,7 @@ func spotifyDown() {
             repeat
                 repeat with i from volumespotify to 0 by -1
                     set the sound volume to i
-                    delay 0.01
+                    delay \(vlu / 100)
                 end repeat
                 pause
                 exit repeat
@@ -87,7 +87,7 @@ func appleMusicUp() {
             repeat
                 repeat with i from snd to 100 by 1
                     set the sound volume to i
-                    delay 0.01
+                    delay \(vlu / 100)
                 end repeat
                 exit repeat
             end repeat
@@ -109,7 +109,7 @@ func appleMusicDown() {
             repeat
                 repeat with i from snd to 0 by -1
                     set the sound volume to i
-                    delay 0.01
+                    delay \(vlu / 100)
                 end repeat
                 pause
                 exit repeat
