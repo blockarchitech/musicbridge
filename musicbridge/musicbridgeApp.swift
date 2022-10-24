@@ -9,7 +9,7 @@ import SwiftUI
 import Foundation
 import MIDIKit
 
-let width = CGFloat(450)
+let width = CGFloat(350)
 let height = CGFloat(250)
 var enginestatus = ""
 @main
@@ -24,6 +24,17 @@ struct musicbridgeApp: App {
     
     init() {
         do {
+            // prevent thread 1 from going bezerk
+            if (up == nil) {
+                UserDefaults.standard.set("Not Set", forKey: "up")
+            }
+            if (down == nil) {
+                UserDefaults.standard.set("Not Set", forKey: "down")
+            }
+            if (fadetime == nil) {
+                UserDefaults.standard.set(3.0, forKey: "down")
+            }
+
             print("Starting MIDI services.")
             enginestatus = "running"
             try midiManager.start()

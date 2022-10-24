@@ -13,7 +13,7 @@ struct GeneralSettingsView: View {
         var id: Self { self }
     }
     @State private var selectedFlavor: Players = .spotify
-    @State var speed = 5.0
+    @State var speed = fadetime
     @State var isEditing = false
     var body: some View {
         VStack {
@@ -38,16 +38,15 @@ struct GeneralSettingsView: View {
             
             Divider()
             
-            List {
-                Picker("Player", selection: $selectedFlavor) {
-                    Text("Spotify").tag(Players.spotify)
-                    Text("Apple Music").tag(Players.am)
-                }
-                .onChange(of: selectedFlavor) { tag in
-                    print("tag: \(tag)")
-                    setPlayerTag(settag: tag)
-                }
+            
+            Picker("Player", selection: $selectedFlavor) {
+                Text("Spotify").tag(Players.spotify)
+                Text("Apple Music").tag(Players.am)
             }
+            .onChange(of: selectedFlavor) { tag in
+                print("tag: \(tag)")
+                setPlayerTag(settag: tag)
+                }
         }
     }
     func setPlayer() { }
@@ -59,10 +58,11 @@ struct AdvancedSettingsView: View {
             Text("Down: \(down)")
             Divider()
             Button("Learn Up") {
-                learning = 1
+                UserDefaults.standard.set(1, forKey: "learning")
+
             }
             Button("Learn Down") {
-                learning = 2
+                UserDefaults.standard.set(2, forKey: "learning")
             }
         }
     }

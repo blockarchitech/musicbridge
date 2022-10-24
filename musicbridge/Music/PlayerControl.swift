@@ -7,12 +7,21 @@
 
 import Foundation
 public var vlu: Double = 0
+var fadetime:Double {
+    get {
+        return UserDefaults.standard.double(forKey:"fadetime")
+    }
+    set {
+     UserDefaults.standard.set(newValue, forKey: "fadetime")
+   }
+ }
 // QUICK NOTE TO CONTRIBUTORS:
 // Please edit the .applescript files if you are editing any of this applescript aswell.
 
 // no idea if i'm just stupid or if this is actually needed
 func storeSliderValue(sliderval: Double) {
     vlu = sliderval
+    UserDefaults.standard.set(sliderval, forKey: "fadetime")
 }
 
 func spotifyUp() {
@@ -35,7 +44,7 @@ func spotifyUp() {
         repeat
             repeat with i from volumespotify to 100 by 1
                 set the sound volume to i
-                delay \(vlu / 100)
+                delay \(fadetime / 100)
             end repeat
             exit repeat
         end repeat
@@ -62,7 +71,7 @@ func spotifyDown() {
             repeat
                 repeat with i from volumespotify to 0 by -1
                     set the sound volume to i
-                    delay \(vlu / 100)
+                    delay \(fadetime / 100)
                 end repeat
                 pause
                 exit repeat
@@ -87,7 +96,7 @@ func appleMusicUp() {
             repeat
                 repeat with i from snd to 100 by 1
                     set the sound volume to i
-                    delay \(vlu / 100)
+                    delay \(fadetime / 100)
                 end repeat
                 exit repeat
             end repeat
@@ -109,7 +118,7 @@ func appleMusicDown() {
             repeat
                 repeat with i from snd to 0 by -1
                     set the sound volume to i
-                    delay \(vlu / 100)
+                    delay \(fadetime / 100)
                 end repeat
                 pause
                 exit repeat
