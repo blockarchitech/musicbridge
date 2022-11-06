@@ -4,6 +4,9 @@
 
 <p align="center">musicbridge Recieves MIDI messages and converts them to AppleScript commands to control Apple Music and Spotify for macOS.</p>
 
+## Note
+
+Electron edition *no longer* works and is depriciated. The code has been removed, however the old release is still up. Please do not use the electron version!
 
 ## Reasoning
 
