@@ -8,7 +8,6 @@
 import SwiftUI
 import Foundation
 import MIDIKit
-
 let width = CGFloat(350)
 let height = CGFloat(250)
 var enginestatus = ""
@@ -24,6 +23,7 @@ struct musicbridgeApp: App {
     
     init() {
         do {
+            
             // prevent thread 1 from going bezerk
             if (up == nil) {
                 UserDefaults.standard.set("Not Set", forKey: "up")
@@ -31,21 +31,14 @@ struct musicbridgeApp: App {
             if (down == nil) {
                 UserDefaults.standard.set("Not Set", forKey: "down")
             }
-            if (fadetime == nil) {
-                UserDefaults.standard.set(3.0, forKey: "down")
-            }
 
-            print("Starting MIDI services.")
             enginestatus = "running"
             try midiManager.start()
-            
         } catch {
-            print("Error starting MIDI services:", error.localizedDescription)
             enginestatus = "stopped"
         }
     
         do {
-            print("Creating virtual MIDI input.")
             try midiManager.addInput(
                 name: virtualInputName,
                 tag: virtualInputName,
@@ -60,6 +53,7 @@ struct musicbridgeApp: App {
             print("Error creating virtual MIDI input:", error.localizedDescription)
         }
     }
+    
     var body: some Scene {
         WindowGroup {
             ContentView().frame(minWidth: width, maxWidth: width, minHeight: height, maxHeight: height, alignment: .center)

@@ -12,7 +12,6 @@ var Player = "spotify"
 
 func setPlayerTag(settag: GeneralSettingsView.Players) {
     Player = "\(settag)"
-    print("set playertag to \(settag)")
 }
 func musicUp() {
     if (Player == "spotify") {

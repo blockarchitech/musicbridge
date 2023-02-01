@@ -15,8 +15,6 @@ var fadetime:Double {
      UserDefaults.standard.set(newValue, forKey: "fadetime")
    }
  }
-// QUICK NOTE TO CONTRIBUTORS:
-// Please edit the .applescript files if you are editing any of this applescript aswell.
 
 // no idea if i'm just stupid or if this is actually needed
 func storeSliderValue(sliderval: Double) {
@@ -26,8 +24,6 @@ func storeSliderValue(sliderval: Double) {
 
 func spotifyUp() {
     let task = Process()
-    print("spotify up trigger")
-    print(vlu)
     task.launchPath = "/usr/bin/osascript"
     task.arguments = ["""
     -e

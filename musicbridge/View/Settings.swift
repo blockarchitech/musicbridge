@@ -6,7 +6,6 @@
 //
 
 import SwiftUI
-
 struct GeneralSettingsView: View {
     enum Players: String, CaseIterable, Identifiable {
         case spotify, am
@@ -44,7 +43,6 @@ struct GeneralSettingsView: View {
                 Text("Apple Music").tag(Players.am)
             }
             .onChange(of: selectedFlavor) { tag in
-                print("tag: \(tag)")
                 setPlayerTag(settag: tag)
                 }
         }
