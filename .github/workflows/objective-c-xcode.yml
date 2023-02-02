@@ -9,13 +9,13 @@ on:
 
 jobs:
   build:
-    name: Build and analyse default scheme using xcodebuild command
+    name: Build musicbridge via xcodebuild
     runs-on: macos-latest
 
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Set Default Scheme
+      - name: Check schema
         run: |
           scheme_list=$(xcodebuild -list -json | tr -d "\n")
           default=$(echo $scheme_list | ruby -e "require 'json'; puts JSON.parse(STDIN.gets)['project']['targets'][0]")
