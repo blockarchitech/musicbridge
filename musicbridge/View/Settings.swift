@@ -65,9 +65,44 @@ struct AdvancedSettingsView: View {
         }
     }
 }
+struct InfoView: View {
+    var body: some View {
+        VStack {
+            VStack {
+                Text("musicbridge")
+                    .bold()
+                    .font(Font.title)
+                Text("Version 1.1")
+                    .italic()
+                    .font(Font.subheadline)
+            }
+            Divider()
+            VStack {
+                HStack {
+                    Text("A")
+                    Text("znci")
+                        .foregroundColor(Color("zncigreen"))
+                        .bold()
+                    Text("project.")
+                }
+                HStack {
+                        Link("View Source",
+                              destination: URL(string: "https://github.com/znci/musicbridge")!)
+                    Divider()
+                    Link("Issues",
+                          destination: URL(string: "https://github.com/znci/musicbridge/issues")!)
+                    Divider()
+                    Link("Contact",
+                          destination: URL(string: "mailto:hello@znci.dev")!)
+                }
+            }
+            
+        }
+    }
+}
 struct SettingsView: View {
     private enum Tabs: Hashable {
-        case general, advanced
+        case general, advanced, info
     }
     var body: some View {
         TabView {
@@ -81,6 +116,11 @@ struct SettingsView: View {
                     Label("MIDI", systemImage: "pianokeys")
                 }
                 .tag(Tabs.advanced)
+            InfoView()
+                .tabItem {
+                    Label("About", systemImage: "info.circle")
+                }
+                .tag(Tabs.info)
         }
         .padding(20)
         .frame(width: 375, height: 150)
