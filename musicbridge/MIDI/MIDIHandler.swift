@@ -37,19 +37,20 @@ var learning:Int {
      UserDefaults.standard.set(newValue, forKey: "learning")
    }
  }
-// MIDI Reciever; For init see "musicbridgeApp.swift".
+
+//let lupstate = learningUpState()
+//let ldwnstate = learningDownState()
 func received(midiEvent: MIDIEvent) {
     switch learning {
     case 1:
         switch midiEvent {
         case .noteOn(let payload):
-            print("Up Note: \(payload.note) \(payload.velocity.midi1Value)")
-//            up = "\(payload.note) \(payload.velocity.midi1Value)"
+//            lupstate.learninguptext = "\(payload.note) \(payload.velocity.midi1Value)"
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "up")
             UserDefaults.standard.set(0, forKey: "learning")
             
         case .noteOff(let payload):
-            print("Up Note: \(payload.note) \(payload.velocity.midi1Value)")
+//            lupstate.learninguptext = "\(payload.note) \(payload.velocity.midi1Value)"
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "up")
             UserDefaults.standard.set(0, forKey: "learning")
             
@@ -58,10 +59,12 @@ func received(midiEvent: MIDIEvent) {
     case 2:
         switch midiEvent {
         case .noteOn(let payload):
+//            ldwnstate.learningdowntext = "\(payload.note) \(payload.velocity.midi1Value)"
             print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "down")
             UserDefaults.standard.set(0, forKey: "learning")
         case .noteOff(let payload):
+//            ldwnstate.learningdowntext = "\(payload.note) \(payload.velocity.midi1Value)"
             print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "down")
             UserDefaults.standard.set(0, forKey: "learning")

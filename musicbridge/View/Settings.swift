@@ -6,6 +6,27 @@
 //
 
 import SwiftUI
+
+//class learningUpState: ObservableObject {
+//    @Published var learninguptext:String = "\(up)" {
+//        willSet {
+//            objectWillChange.send()
+//        }
+//    }
+//}
+//class learningDownState: ObservableObject {
+//
+//    @Published var learningdowntext:String = "\(up)" {
+//        willSet {
+//            objectWillChange.send()
+//        }
+//    }
+//    init(learningdowntext: String) {
+//            self.learningdowntext = down
+//    }
+//}
+
+
 struct GeneralSettingsView: View {
     enum Players: String, CaseIterable, Identifiable {
         case spotify, am
@@ -49,19 +70,35 @@ struct GeneralSettingsView: View {
     }
     func setPlayer() { }
 }
+
+struct LearnUpView: View {
+//    @ObservedObject var uptext: learningUpState
+    var body: some View {
+//        Text("Up: \(uptext.learninguptext)")
+        Button("Learn Up") {
+            UserDefaults.standard.set(1, forKey: "learning")
+
+        }
+        Divider()
+    }
+}
+struct LearnDownView: View {
+//    @ObservedObject var downtext: learningDownState
+    var body: some View {
+//        Text("Down: \(downtext.learningdowntext)")
+        Button("Learn Down") {
+            UserDefaults.standard.set(2, forKey: "learning")
+
+        }
+    }
+}
+
 struct AdvancedSettingsView: View {
     var body: some View {
         VStack {
-            Text("Up: \(up)")
-            Text("Down: \(down)")
-            Divider()
-            Button("Learn Up") {
-                UserDefaults.standard.set(1, forKey: "learning")
-
-            }
-            Button("Learn Down") {
-                UserDefaults.standard.set(2, forKey: "learning")
-            }
+            Text("To learn a MIDI note, click one of the learn buttons and send a message.")
+            LearnUpView()
+            LearnDownView()
         }
     }
 }
@@ -69,11 +106,14 @@ struct InfoView: View {
     var body: some View {
         VStack {
             VStack {
+                Image(systemName: "music.note")
+                    .imageScale(.large)
+                    .foregroundColor(.accentColor)
                 Text("musicbridge")
                     .bold()
                     .font(Font.title)
-                Text("Version 1.1")
-                    .italic()
+                Text("Version 1.2")
+                    .foregroundColor(Color.secondary)
                     .font(Font.subheadline)
             }
             Divider()
@@ -86,7 +126,7 @@ struct InfoView: View {
                     Text("project.")
                 }
                 HStack {
-                        Link("View Source",
+                        Link("Source",
                               destination: URL(string: "https://github.com/znci/musicbridge")!)
                     Divider()
                     Link("Issues",
@@ -100,9 +140,42 @@ struct InfoView: View {
         }
     }
 }
+
+struct CloudView: View {
+    @State private var vibrateOnRing = false
+
+    var body: some View {
+        VStack {
+            Text("musicbridge cloud")
+                .bold()
+                .font(Font.title)
+            Text("Closed Beta")
+                .foregroundColor(Color.secondary)
+                .font(Font.subheadline)
+            Divider()
+            
+            Text("We're working on some awesome things.")
+            VStack {
+                Toggle(isOn: $vibrateOnRing, label: {
+                    Text("Join Beta Program")
+                })
+                    .toggleStyle(.checkbox)
+                    .disabled(true)
+
+            }
+            Text("Cloud Bundle Identifier: dev.znci:stable1.2")
+                .foregroundColor(Color.secondary)
+                .font(Font.subheadline)
+                .padding(4)
+            
+            
+        }
+    }
+}
+
 struct SettingsView: View {
     private enum Tabs: Hashable {
-        case general, advanced, info
+        case general, advanced, cloud, info
     }
     var body: some View {
         TabView {
@@ -116,10 +189,16 @@ struct SettingsView: View {
                     Label("MIDI", systemImage: "pianokeys")
                 }
                 .tag(Tabs.advanced)
+            CloudView()
+                .tabItem {
+                    Label("Cloud", systemImage: "dot.radiowaves.left.and.right")
+                }
+                .tag(Tabs.cloud)
             InfoView()
                 .tabItem {
                     Label("About", systemImage: "info.circle")
                 }
+
                 .tag(Tabs.info)
         }
         .padding(20)
