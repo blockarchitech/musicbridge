@@ -1,4 +1,4 @@
-name: musicbridge - New Release
+name: musicbridge - New Beta Release
 
 on:
   workflow_dispatch:
