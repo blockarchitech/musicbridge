@@ -31,9 +31,9 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild clean build analyze -derivedDataPath "." -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
       - name: Check Build Dir
-        run: ls -r Build/Products/
+        run: ls -r Build/Products/Debug
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: musicbridge
-          path: Build/Products/musicbridge.app
+          path: Build/Products/Debug/musicbridge.app
