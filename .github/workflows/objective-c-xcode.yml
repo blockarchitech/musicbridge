@@ -32,8 +32,11 @@ jobs:
           xcodebuild clean build analyze -derivedDataPath "." -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
       - name: Check Build Dir
         run: ls -r Build/Products/Debug
+      - name: Auto-Create DMG
+        run: |
+          hdiutil create -format UDZO -srcfolder Build/Products/Debug/musicbridge.app musicbridge-gh-actions.dmg
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
           name: musicbridge
-          path: Build/Products/Debug/musicbridge.app
+          path: musicbridge-gh-actions.dmg
