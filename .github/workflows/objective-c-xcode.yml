@@ -31,7 +31,7 @@ jobs:
           file_to_build=`echo $file_to_build | awk '{$1=$1;print}'`
           xcodebuild clean build analyze -derivedDataPath "." -scheme "$scheme" -"$filetype_parameter" "$file_to_build" | xcpretty && exit ${PIPESTATUS[0]}
       - name: Testing
-        run: ls -r .
+        run: ls -r Build/
       - name: Upload Artifact
         uses: actions/upload-artifact@v3
         with:
