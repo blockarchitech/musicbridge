@@ -36,7 +36,8 @@ jobs:
         uses: mathieudutour/github-tag-action@v6.0
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          default_bump: minor
+          default_prerelease_bump: preminor
+          pre_release_branches: swift
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
@@ -45,6 +46,7 @@ jobs:
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
           makeLatest: true
+          generateReleaseNotes: true
           prerelease: true
           generateReleaseNotes: true
           draft: false
