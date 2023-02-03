@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: musicbridge
-          path: musicbridge.app
+          path: musicbridge/musicbridge.app
