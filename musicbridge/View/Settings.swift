@@ -7,26 +7,6 @@
 
 import SwiftUI
 
-//class learningUpState: ObservableObject {
-//    @Published var learninguptext:String = "\(up)" {
-//        willSet {
-//            objectWillChange.send()
-//        }
-//    }
-//}
-//class learningDownState: ObservableObject {
-//
-//    @Published var learningdowntext:String = "\(up)" {
-//        willSet {
-//            objectWillChange.send()
-//        }
-//    }
-//    init(learningdowntext: String) {
-//            self.learningdowntext = down
-//    }
-//}
-
-
 struct GeneralSettingsView: View {
     enum Players: String, CaseIterable, Identifiable {
         case spotify, am
@@ -72,33 +52,65 @@ struct GeneralSettingsView: View {
 }
 
 struct LearnUpView: View {
-//    @ObservedObject var uptext: learningUpState
+    @AppStorage("up") var up: String = UserDefaults.standard.string(forKey:"up") ?? ""
     var body: some View {
-//        Text("Up: \(uptext.learninguptext)")
-        Button("Learn Up") {
-            UserDefaults.standard.set(1, forKey: "learning")
-
+        VStack {
+            Text(up.split(separator: " ").first ?? "")
+                .font(.system(size: 25, design: .monospaced))
+            HStack {
+                Text("Velocity")
+                    .font(.system(size: 15, design: .rounded))
+                    .foregroundColor(.secondary)
+                Text(up.split(separator: " ").last ?? "")
+                    .font(.system(size: 15, design: .rounded))
+                    .bold()
+                    .foregroundColor(.secondary)
+            }
+            
+            
+            Button("Learn Up") {
+                UserDefaults.standard.set(1, forKey: "learning")
+            }
+            .padding()
         }
-        Divider()
+        .padding()
     }
+
 }
 struct LearnDownView: View {
-//    @ObservedObject var downtext: learningDownState
+    @AppStorage("down") var down: String = UserDefaults.standard.string(forKey:"down") ?? ""
     var body: some View {
-//        Text("Down: \(downtext.learningdowntext)")
-        Button("Learn Down") {
-            UserDefaults.standard.set(2, forKey: "learning")
-
+        VStack {
+            Text(down.split(separator: " ").first ?? "")
+                .font(.system(size: 25, design: .monospaced))
+            HStack {
+                Text("Velocity")
+                    .font(.system(size: 15, design: .rounded))
+                    .foregroundColor(.secondary)
+                Text(up.split(separator: " ").last ?? "")
+                    .font(.system(size: 15, design: .rounded))
+                    .bold()
+                    .foregroundColor(.secondary)
+            }
+            
+            
+            Button("Learn Down") {
+                UserDefaults.standard.set(2, forKey: "learning")
+            }
+            .padding()
         }
+        .padding()
     }
+
 }
 
 struct AdvancedSettingsView: View {
     var body: some View {
-        VStack {
-            Text("To learn a MIDI note, click one of the learn buttons and send a message.")
+        HStack {
             LearnUpView()
+            Divider()
             LearnDownView()
+        
         }
     }
 }
