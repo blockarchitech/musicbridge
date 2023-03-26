@@ -5,12 +5,7 @@
 
 import Foundation
 import MIDIKitIO
-
-// Variables
-//var learning = 0
-//var up = ""
-//var down = ""
-
+// TODO: not make this spaghetti
 var up:String! {
     get {
         return UserDefaults.standard.string(forKey:"up")
@@ -38,19 +33,15 @@ var learning:Int {
    }
  }
 
-//let lupstate = learningUpState()
-//let ldwnstate = learningDownState()
 func received(midiEvent: MIDIEvent) {
     switch learning {
     case 1:
         switch midiEvent {
         case .noteOn(let payload):
-//            lupstate.learninguptext = "\(payload.note) \(payload.velocity.midi1Value)"
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "up")
             UserDefaults.standard.set(0, forKey: "learning")
             
         case .noteOff(let payload):
-//            lupstate.learninguptext = "\(payload.note) \(payload.velocity.midi1Value)"
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "up")
             UserDefaults.standard.set(0, forKey: "learning")
             
@@ -59,12 +50,10 @@ func received(midiEvent: MIDIEvent) {
     case 2:
         switch midiEvent {
         case .noteOn(let payload):
-//            ldwnstate.learningdowntext = "\(payload.note) \(payload.velocity.midi1Value)"
             print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "down")
             UserDefaults.standard.set(0, forKey: "learning")
         case .noteOff(let payload):
-//            ldwnstate.learningdowntext = "\(payload.note) \(payload.velocity.midi1Value)"
             print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "down")
             UserDefaults.standard.set(0, forKey: "learning")
