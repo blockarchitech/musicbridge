@@ -1,4 +1,4 @@
-> Note: Old releases (pre-rewrite) were removed on 3/36/23 and are no longer supported or maintained. These releases are known to have issues and do not work properly.
+> Note: Old releases (pre-rewrite) were removed on 3/26/23 and are no longer supported or maintained. These releases are known to have issues and do not work properly.
 
 <h1 align="center">musicbridge</h1>
 
