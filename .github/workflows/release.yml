@@ -30,7 +30,7 @@ jobs:
         run: ls -r Build/Products/Debug
       - name: Auto-Create DMG
         run: |
-          hdiutil create -format UDZO -srcfolder Build/Products/Debug/musicbridge.app musicbridge-release.dmg
+          hdiutil create -format UDZO -srcfolder Build/Products/Debug/musicbridge.app rls/musicbridge-release.dmg
       - name: Bump version and push tag
         id: tag_version
         uses: mathieudutour/github-tag-action@v6.0
@@ -38,11 +38,30 @@ jobs:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           default_bump: minor
           release_branches: swift
+      - name: Get Sparkle Keyfile
+        env:
+          PRIVATE_SPARKLE_KEY: ${{ secrets.PRIVATE_SPARKLE_KEY }}
+        run: |
+          echo -n "$PRIVATE_SPARKLE_KEY" > sparkle_private_key
+      - name: Update appcast
+        run: |
+          ./generate_appcast \
+              --ed-key-file sparkle_private_key \
+              --link https://github.com/znci/musicbridge/releases \
+              --download-url-prefix https://github.com/znci/musicbridge/releases/download/v${{ steps.tag_version.outputs.new_tag }}/ \
+              -o appcast.xml \
+              rls/
+      - name: Commit Appcast
+        uses: stefanzweifel/git-auto-commit-action@v4
+        with:
+          file_pattern: |
+            appcast.xml
+          commit_message: "Release ${{ steps.tag_version.outputs.new_tag }}"
       - name: Create Release
         uses: ncipollo/release-action@v1
         with:
           tag: ${{ steps.tag_version.outputs.new_tag }}
-          artifacts: "musicbridge-release.dmg"
+          artifacts: "rls/musicbridge-release.dmg"
           name: Release ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
           makeLatest: true

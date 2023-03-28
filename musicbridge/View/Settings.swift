@@ -124,7 +124,7 @@ struct InfoView: View {
                 Text("musicbridge")
                     .bold()
                     .font(Font.title)
-                Text("Version 1.2")
+                Text("Version \(version)")
                     .foregroundColor(Color.secondary)
                     .font(Font.subheadline)
             }
@@ -175,7 +175,7 @@ struct CloudView: View {
                     .disabled(true)
 
             }
-            Text("Cloud Bundle Identifier: dev.znci:stable1.2")
+            Text("Cloud Bundle Identifier: dev.znci:stable\(version)")
                 .foregroundColor(Color.secondary)
                 .font(Font.subheadline)
                 .padding(4)
