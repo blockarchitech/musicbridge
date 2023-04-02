@@ -1,5 +1,5 @@
 NAME="musicbridge"
-DESCRIPTION="MIDI controller for macOS"
+DESCRIPTION="AppleScript/MIDI Bridge for Spotify and Apple Music"
 VERSION="v1.4"
 PRIVATE=0
 
