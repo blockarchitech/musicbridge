@@ -1,5 +1,6 @@
 NAME="musicbridge"
 DESCRIPTION="MIDI controller for macOS"
+VERSION="v1.4"
 PRIVATE=0
 
 PROJECT_LEAD="gibbiemonster"
