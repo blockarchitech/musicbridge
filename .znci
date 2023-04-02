@@ -1,0 +1,7 @@
+NAME="musicbridge"
+DESCRIPTION="MIDI controller for macOS"
+PRIVATE=0
+
+PROJECT_LEAD="gibbiemonster"
+CONTRIBUTORS=["gibbiemonster"]
+INTERNAL_VERSION=1
