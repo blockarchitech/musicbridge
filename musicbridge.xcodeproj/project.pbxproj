@@ -13,7 +13,6 @@
 		276873CE28D4B37D006269A8 /* PlayerSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */; };
 		279E4B882899A43300355840 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B872899A43300355840 /* Settings.swift */; };
 		279E4B8C2899B0D600355840 /* MIDIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B8B2899B0D600355840 /* MIDIHandler.swift */; };
-		279E592629D27EB900FBBDA9 /* Sparkle in Frameworks */ = {isa = PBXBuildFile; productRef = 279E592529D27EB900FBBDA9 /* Sparkle */; };
 		27AD08F92904B88C00D56FA2 /* MIDIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27AD08F82904B88C00D56FA2 /* MIDIKit */; };
 		27E3EBD62898B17C00D5FB55 /* musicbridgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */; };
 		27E3EBD82898B17C00D5FB55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBD72898B17C00D5FB55 /* ContentView.swift */; };
@@ -70,7 +69,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AD08F92904B88C00D56FA2 /* MIDIKit in Frameworks */,
-				279E592629D27EB900FBBDA9 /* Sparkle in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -207,7 +205,6 @@
 			name = musicbridge;
 			packageProductDependencies = (
 				27AD08F82904B88C00D56FA2 /* MIDIKit */,
-				279E592529D27EB900FBBDA9 /* Sparkle */,
 			);
 			productName = musicbridge;
 			productReference = 27E3EBD22898B17C00D5FB55 /* musicbridge.app */;
@@ -283,7 +280,6 @@
 			mainGroup = 27E3EBC92898B17C00D5FB55;
 			packageReferences = (
 				27AD08F72904B88C00D56FA2 /* XCRemoteSwiftPackageReference "MIDIKit" */,
-				279E592429D27EB900FBBDA9 /* XCRemoteSwiftPackageReference "Sparkle" */,
 			);
 			productRefGroup = 27E3EBD32898B17C00D5FB55 /* Products */;
 			projectDirPath = "";
@@ -695,14 +691,6 @@
 				kind = branch;
 			};
 		};
-		279E592429D27EB900FBBDA9 /* XCRemoteSwiftPackageReference "Sparkle" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/sparkle-project/Sparkle";
-			requirement = {
-				branch = 2.x;
-				kind = branch;
-			};
-		};
 		27AD08F72904B88C00D56FA2 /* XCRemoteSwiftPackageReference "MIDIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/orchetect/MIDIKit";
@@ -718,11 +706,6 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */;
 			productName = WebMIDIKit;
-		};
-		279E592529D27EB900FBBDA9 /* Sparkle */ = {
-			isa = XCSwiftPackageProductDependency;
-			package = 279E592429D27EB900FBBDA9 /* XCRemoteSwiftPackageReference "Sparkle" */;
-			productName = Sparkle;
 		};
 		27AD08F82904B88C00D56FA2 /* MIDIKit */ = {
 			isa = XCSwiftPackageProductDependency;
