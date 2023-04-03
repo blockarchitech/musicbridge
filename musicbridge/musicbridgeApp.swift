@@ -8,7 +8,6 @@
 import SwiftUI
 import Foundation
 import MIDIKit
-import Sparkle
 extension Bundle {
     var buildNumber: String {
         return infoDictionary?["CFBundleVersion"] as! String
@@ -17,35 +16,6 @@ extension Bundle {
 let build = Bundle.main.buildNumber
 let version = build
 
-// This view model class publishes when new updates can be checked by the user
-final class CheckForUpdatesViewModel: ObservableObject {
-    @Published var canCheckForUpdates = false
-
-    init(updater: SPUUpdater) {
-        updater.publisher(for: \.canCheckForUpdates)
-            .assign(to: &$canCheckForUpdates)
-    }
-}
-
-// This is the view for the Check for Updates menu item
-// Note this intermediate view is necessary for the disabled state on the menu item to work properly before Monterey.
-// See https://stackoverflow.com/questions/68553092/menu-not-updating-swiftui-bug for more info
-struct CheckForUpdatesView: View {
-    @ObservedObject private var checkForUpdatesViewModel: CheckForUpdatesViewModel
-    private let updater: SPUUpdater
-    
-    init(updater: SPUUpdater) {
-        self.updater = updater
-        
-        // Create our view model for our CheckForUpdatesView
-        self.checkForUpdatesViewModel = CheckForUpdatesViewModel(updater: updater)
-    }
-    
-    var body: some View {
-        Button("Check for Updates…", action: updater.checkForUpdates)
-            .disabled(!checkForUpdatesViewModel.canCheckForUpdates)
-    }
-}
 
 @objc
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -86,7 +56,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 var enginestatus = ""
 @main
 struct musicbridgeApp: App {
-    private let updaterController: SPUStandardUpdaterController
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let midiManager = MIDIManager(
         clientName: "musicbridge-client",
@@ -127,15 +96,9 @@ struct musicbridgeApp: App {
         } catch {
             print("Error creating virtual MIDI input:", error.localizedDescription)
         }
-        updaterController = SPUStandardUpdaterController(startingUpdater: true, updaterDelegate: nil, userDriverDelegate: nil)
     }
     
     var body: some Scene {
         MainScene()
-        .commands {
-            CommandGroup(after: .appInfo) {
-                CheckForUpdatesView(updater: updaterController.updater)
-            }
-        }
     }
 }
