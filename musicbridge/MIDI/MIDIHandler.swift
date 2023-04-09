@@ -5,7 +5,6 @@
 
 import Foundation
 import MIDIKitIO
-// TODO: not make this spaghetti
 var up:String! {
     get {
         return UserDefaults.standard.string(forKey:"up")
@@ -33,6 +32,11 @@ var learning:Int {
    }
  }
 
+func handleohno() {
+    logger.error("oh no happened")
+    learning = 0
+}
+
 func received(midiEvent: MIDIEvent) {
     switch learning {
     case 1:
@@ -45,44 +49,45 @@ func received(midiEvent: MIDIEvent) {
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "up")
             UserDefaults.standard.set(0, forKey: "learning")
             
-        default: print("h1")
+        default: logger.info("No Learning trigger for note type.")
         }
     case 2:
         switch midiEvent {
         case .noteOn(let payload):
-            print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
+            logger.debug("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "down")
             UserDefaults.standard.set(0, forKey: "learning")
         case .noteOff(let payload):
-            print("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
+            logger.debug("Down Note: \(payload.note) \(payload.velocity.midi1Value)")
             UserDefaults.standard.set("\(payload.note) \(payload.velocity.midi1Value)", forKey: "down")
             UserDefaults.standard.set(0, forKey: "learning")
-        default: print("h2")
+        default: logger.info("No Learning trigger for note type.")
         }
     case 0:
         switch midiEvent {
         case .noteOn(let payload):
-            print("Note On:", payload.note, payload.velocity, payload.channel)
+            logger.debug("Note On: \(payload.note)")
             if ("\(payload.note) \(payload.velocity.midi1Value)" == up) {
                 musicUp()
             } else if ("\(payload.note) \(payload.velocity.midi1Value)" == down) {
                 musicDown()
             }
         case .noteOff(let payload):
-            print("Note Off:", payload.note, payload.velocity, payload.channel)
+            logger.debug("Note Off: \(payload.note)")
             if ("\(payload.note) \(payload.velocity.midi1Value)" == up) {
                 musicUp()
             } else if ("\(payload.note) \(payload.velocity.midi1Value)" == down) {
                 musicDown()
             }
         case .cc(let payload):
-            print("CC:", payload.controller, payload.value, payload.channel)
+            logger.debug("CC: \(payload.controller) \(payload.channel)")
         case .programChange(let payload):
-            print("Program Change:", payload.program, payload.channel)
+            logger.debug("Program Change: \(payload.program), \(payload.channel)")
         default:
-            print("h3")
+            logger.fault("Invalid MIDI Note!")
         }
     default:
-        print("h4")
+        logger.fault("oh no happened")
+        handleohno()
     }
 }

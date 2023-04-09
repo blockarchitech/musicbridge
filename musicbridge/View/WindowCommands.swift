@@ -12,7 +12,7 @@ import SwiftUI
 struct AppCommands: Commands {
     
     func openLogger() {
-        print("Action")
+        logger.debug("Action from Logger Command")
     }
 
     
@@ -25,6 +25,9 @@ struct AppCommands: Commands {
             }
             .keyboardShortcut("l", modifiers: .command)
             .disabled(true)
+            Button("Crash") {
+              fatalError("Crash was triggered")
+            }
         }
     }
 }

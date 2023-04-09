@@ -10,6 +10,9 @@
 		2712D52429D1F1DB006B4271 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712D52329D1F1DB006B4271 /* Main.swift */; };
 		2712D52829D1F406006B4271 /* WindowCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712D52729D1F406006B4271 /* WindowCommands.swift */; };
 		2712D52C29D1F66F006B4271 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712D52B29D1F66F006B4271 /* Logger.swift */; };
+		2717D87A29E2F02D00CFC1AF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2717D87929E2F02D00CFC1AF /* FirebaseAnalytics */; };
+		2717D87C29E2F02D00CFC1AF /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2717D87B29E2F02D00CFC1AF /* FirebaseCrashlytics */; };
+		2749106229E058ED0020DE37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2749106129E058ED0020DE37 /* GoogleService-Info.plist */; };
 		276873CE28D4B37D006269A8 /* PlayerSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */; };
 		279E4B882899A43300355840 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B872899A43300355840 /* Settings.swift */; };
 		279E4B8C2899B0D600355840 /* MIDIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B8B2899B0D600355840 /* MIDIHandler.swift */; };
@@ -45,6 +48,7 @@
 		2712D52329D1F1DB006B4271 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		2712D52729D1F406006B4271 /* WindowCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCommands.swift; sourceTree = "<group>"; };
 		2712D52B29D1F66F006B4271 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		2749106129E058ED0020DE37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSwitcher.swift; sourceTree = "<group>"; };
 		279E4B872899A43300355840 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		279E4B8B2899B0D600355840 /* MIDIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIHandler.swift; sourceTree = "<group>"; };
@@ -68,6 +72,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2717D87C29E2F02D00CFC1AF /* FirebaseCrashlytics in Frameworks */,
+				2717D87A29E2F02D00CFC1AF /* FirebaseAnalytics in Frameworks */,
 				27AD08F92904B88C00D56FA2 /* MIDIKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -149,6 +155,7 @@
 				27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */,
 				27E3EBD92898B17E00D5FB55 /* Assets.xcassets */,
 				27E3EBDE2898B17E00D5FB55 /* musicbridge.entitlements */,
+				2749106129E058ED0020DE37 /* GoogleService-Info.plist */,
 				27E3EBDB2898B17E00D5FB55 /* Preview Content */,
 			);
 			path = musicbridge;
@@ -196,6 +203,7 @@
 				27E3EBCE2898B17C00D5FB55 /* Sources */,
 				27E3EBCF2898B17C00D5FB55 /* Frameworks */,
 				27E3EBD02898B17C00D5FB55 /* Resources */,
+				2717D87D29E2F0C800CFC1AF /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -205,6 +213,8 @@
 			name = musicbridge;
 			packageProductDependencies = (
 				27AD08F82904B88C00D56FA2 /* MIDIKit */,
+				2717D87929E2F02D00CFC1AF /* FirebaseAnalytics */,
+				2717D87B29E2F02D00CFC1AF /* FirebaseCrashlytics */,
 			);
 			productName = musicbridge;
 			productReference = 27E3EBD22898B17C00D5FB55 /* musicbridge.app */;
@@ -280,6 +290,7 @@
 			mainGroup = 27E3EBC92898B17C00D5FB55;
 			packageReferences = (
 				27AD08F72904B88C00D56FA2 /* XCRemoteSwiftPackageReference "MIDIKit" */,
+				2717D87829E2F02D00CFC1AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
 			);
 			productRefGroup = 27E3EBD32898B17C00D5FB55 /* Products */;
 			projectDirPath = "";
@@ -299,6 +310,7 @@
 			files = (
 				27E3EBDD2898B17E00D5FB55 /* Preview Assets.xcassets in Resources */,
 				27E3EBDA2898B17E00D5FB55 /* Assets.xcassets in Resources */,
+				2749106229E058ED0020DE37 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -317,6 +329,28 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		2717D87D29E2F0C800CFC1AF /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		27E3EBCE2898B17C00D5FB55 /* Sources */ = {
@@ -406,7 +440,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEAD_CODE_STRIPPING = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
@@ -683,6 +717,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		2717D87829E2F02D00CFC1AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
 		279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adamnemecek/WebMIDIKit.git";
@@ -702,6 +744,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		2717D87929E2F02D00CFC1AF /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2717D87829E2F02D00CFC1AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		2717D87B29E2F02D00CFC1AF /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 2717D87829E2F02D00CFC1AF /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
 		27798806289DB13D0021968A /* WebMIDIKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 279E4B942899D13000355840 /* XCRemoteSwiftPackageReference "WebMIDIKit" */;

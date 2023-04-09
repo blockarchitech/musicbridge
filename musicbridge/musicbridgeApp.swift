@@ -7,7 +7,10 @@
 
 import SwiftUI
 import Foundation
+import OSLog
 import MIDIKit
+import FirebaseCore
+
 extension Bundle {
     var buildNumber: String {
         return infoDictionary?["CFBundleVersion"] as! String
@@ -50,10 +53,14 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             app.mainMenu?.removeItem(menu)
         }
+        FirebaseApp.configure()
+        logger.debug("Finished App Delegate. Configured.")
     }
 }
 
 var enginestatus = ""
+let logger = Logger()
+
 @main
 struct musicbridgeApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
@@ -94,10 +101,10 @@ struct musicbridgeApp: App {
                 }
             )
         } catch {
-            print("Error creating virtual MIDI input:", error.localizedDescription)
+            logger.error("Error creating virtual MIDI input: \(error.localizedDescription)")
         }
     }
-    
+
     var body: some Scene {
         MainScene()
     }
