@@ -166,7 +166,6 @@ struct CloudView: View {
                 .font(Font.subheadline)
             Divider()
             
-            Text("We're working on some awesome things.")
             VStack {
                 Toggle(isOn: $vibrateOnRing, label: {
                     Text("Join Beta Program")
@@ -185,9 +184,28 @@ struct CloudView: View {
     }
 }
 
+struct LooptimusSettingsView: View {
+    var body: some View {
+        VStack {
+            Text("Control musicbridge with a Looptimus device.")
+                .bold()
+                .font(Font.title3)
+            Divider()
+            Text("No Looptimus devices found.")
+                .foregroundColor(Color.secondary)
+                .font(Font.subheadline)
+            Divider()
+            Text("Looptimus is a registered trademark of Loop Community. musicbridge is not affiliated with Loop Community in any way.")
+                .foregroundColor(Color.secondary)
+                .font(Font.subheadline)
+            
+        }
+    }
+}
+
 struct SettingsView: View {
     private enum Tabs: Hashable {
-        case general, advanced, cloud, info
+        case general, advanced, cloud, info, looptimus
     }
     var body: some View {
         TabView {
@@ -201,11 +219,16 @@ struct SettingsView: View {
                     Label("MIDI", systemImage: "pianokeys")
                 }
                 .tag(Tabs.advanced)
-            CloudView()
+            LooptimusSettingsView()
                 .tabItem {
-                    Label("Cloud", systemImage: "dot.radiowaves.left.and.right")
+                    Label("Looptimus", systemImage: "button.programmable.square.fill")
                 }
-                .tag(Tabs.cloud)
+                .tag(Tabs.looptimus)
+//            CloudView()
+//                .tabItem {
+//                    Label("Cloud", systemImage: "dot.radiowaves.left.and.right")
+//                }
+//                .tag(Tabs.cloud)
             InfoView()
                 .tabItem {
                     Label("About", systemImage: "info.circle")
