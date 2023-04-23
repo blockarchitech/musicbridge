@@ -1,4 +1,4 @@
-> Note: Old releases (pre-rewrite) were removed on 3/26/23 and are no longer supported or maintained. These releases are known to have issues and do not work properly.
+**THERE IS AN ISSUE IN MACOS VENTURA CAUSING EXECUTION ERROR -600** This prevents Spotify/Apple Music from being controlled properly, and in some cases, at all. Please see issue #16
 
 <h1 align="center">musicbridge</h1>
 
