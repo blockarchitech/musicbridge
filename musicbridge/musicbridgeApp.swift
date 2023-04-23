@@ -11,6 +11,9 @@ import OSLog
 import MIDIKit
 import FirebaseCore
 
+
+
+
 extension Bundle {
     var buildNumber: String {
         return infoDictionary?["CFBundleVersion"] as! String
@@ -70,10 +73,24 @@ struct musicbridgeApp: App {
         manufacturer: "blockarchitech"
     )
     
+    var externalDeviceHelper = ExternalDeviceHelper()
+    
+    @State var midiInSelectedID: MIDIIdentifier = .invalidMIDIIdentifier
+    @State var midiInSelectedDisplayName: String = "None"
+    
     let virtualInputName = "Virtual musicbridge Input"
     
     init() {
+        
         do {
+            FirebaseApp.configure()
+            
+            externalDeviceHelper.midiManager = midiManager
+            externalDeviceHelper.initialSetup()
+        
+            // restore saved MIDI endpoint selections and connections
+            midiRestorePersistentState()
+            externalDeviceHelper.midiInUpdateConnection(selectedUniqueID: midiInSelectedID)
             
             // prevent thread 1 from going bezerk
             if (up == nil) {
@@ -104,8 +121,58 @@ struct musicbridgeApp: App {
             logger.error("Error creating virtual MIDI input: \(error.localizedDescription)")
         }
     }
-
+    let width = 600
+    let height = 500
     var body: some Scene {
-        MainScene()
+        WindowGroup {
+            Main()
+        } .commands {
+            AppCommands()
+            
+        }
+        Settings {
+            SettingsView(
+                midiInSelectedID: $midiInSelectedID,
+                midiInSelectedDisplayName: $midiInSelectedDisplayName
+            )
+            .environmentObject(midiManager)
+            .environmentObject(externalDeviceHelper)
+        }
+    }
+}
+
+enum ConnectionTags {
+    static let midiIn = "SelectedInputConnection"
+}
+
+enum UserDefaultsKeys {
+    static let midiInID = "SelectedMIDIInID"
+    static let midiInDisplayName = "SelectedMIDIInDisplayName"
+}
+
+extension musicbridgeApp {
+    /// This should only be run once at app startup.
+    private mutating func midiRestorePersistentState() {
+        print("Restoring saved MIDI connections.")
+    
+        let inName = UserDefaults.standard.string(forKey: UserDefaultsKeys.midiInDisplayName) ?? ""
+        _midiInSelectedDisplayName = State(wrappedValue: inName)
+    
+        let inID = Int32(
+            exactly: UserDefaults.standard.integer(forKey: UserDefaultsKeys.midiInID)
+        ) ?? .invalidMIDIIdentifier
+        _midiInSelectedID = State(wrappedValue: inID)
+    
+    }
+    
+    public func midiSavePersistentState() {
+        UserDefaults.standard.set(
+            midiInSelectedID,
+            forKey: UserDefaultsKeys.midiInID
+        )
+        UserDefaults.standard.set(
+            midiInSelectedDisplayName,
+            forKey: UserDefaultsKeys.midiInDisplayName
+        )
     }
 }

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import MIDIKit
 
 struct GeneralSettingsView: View {
     enum Players: String, CaseIterable, Identifiable {
@@ -73,7 +74,6 @@ struct LearnUpView: View {
             }
             .padding()
         }
-        .padding()
     }
 
 }
@@ -99,18 +99,37 @@ struct LearnDownView: View {
             }
             .padding()
         }
-        .padding()
     }
 
 }
 
+struct ExternalDeviceSettings: View {
+    @EnvironmentObject var midiManager: MIDIManager
+    @EnvironmentObject var midiHelper: ExternalDeviceHelper
+    
+    @Binding var midiInSelectedID: MIDIIdentifier
+    @Binding var midiInSelectedDisplayName: String
+    var body: some View {
+        VStack {
+            Text("Select an MIDI device to use with musicbridge")
+                .bold()
+            Divider()
+            HStack {
+                ExternalDeviceInputSelectionView(midiInSelectedID: $midiInSelectedID, midiInSelectedDisplayName: $midiInSelectedDisplayName)
+            }
+        }
+    }
+}
+
 struct AdvancedSettingsView: View {
     var body: some View {
-        HStack {
-            LearnUpView()
-            Divider()
-            LearnDownView()
-        
+        VStack {
+            HStack {
+                LearnUpView()
+                Divider()
+                LearnDownView()
+                
+            }
         }
     }
 }
@@ -153,37 +172,6 @@ struct InfoView: View {
     }
 }
 
-struct CloudView: View {
-    @State private var vibrateOnRing = false
-
-    var body: some View {
-        VStack {
-            Text("musicbridge cloud")
-                .bold()
-                .font(Font.title)
-            Text("Closed Beta")
-                .foregroundColor(Color.secondary)
-                .font(Font.subheadline)
-            Divider()
-            
-            VStack {
-                Toggle(isOn: $vibrateOnRing, label: {
-                    Text("Join Beta Program")
-                })
-                    .toggleStyle(.checkbox)
-                    .disabled(true)
-
-            }
-            Text("Cloud Bundle Identifier: dev.znci:stable\(version)")
-                .foregroundColor(Color.secondary)
-                .font(Font.subheadline)
-                .padding(4)
-            
-            
-        }
-    }
-}
-
 struct LooptimusSettingsView: View {
     var body: some View {
         VStack {
@@ -204,8 +192,13 @@ struct LooptimusSettingsView: View {
 }
 
 struct SettingsView: View {
+    @EnvironmentObject var midiManager: MIDIManager
+    @EnvironmentObject var midiHelper: ExternalDeviceHelper
+    
+    @Binding var midiInSelectedID: MIDIIdentifier
+    @Binding var midiInSelectedDisplayName: String
     private enum Tabs: Hashable {
-        case general, advanced, cloud, info, looptimus
+        case general, advanced, cloud, info, looptimus, extdevset
     }
     var body: some View {
         TabView {
@@ -214,34 +207,34 @@ struct SettingsView: View {
                     Label("General", systemImage: "gear")
                 }
                 .tag(Tabs.general)
+            ExternalDeviceSettings(
+                midiInSelectedID: $midiInSelectedID,
+                midiInSelectedDisplayName: $midiInSelectedDisplayName
+            )
+                .tabItem {
+                    Label("MIDI Device", systemImage: "pianokeys")
+                }
+                .tag(Tabs.extdevset)
             AdvancedSettingsView()
                 .tabItem {
-                    Label("MIDI", systemImage: "pianokeys")
+                    Label("Learning", systemImage: "waveform.path.ecg.rectangle")
                 }
                 .tag(Tabs.advanced)
-            LooptimusSettingsView()
-                .tabItem {
-                    Label("Looptimus", systemImage: "button.programmable.square.fill")
-                }
-                .tag(Tabs.looptimus)
-//            CloudView()
+//            LooptimusSettingsView()
 //                .tabItem {
-//                    Label("Cloud", systemImage: "dot.radiowaves.left.and.right")
+//                    Label("Looptimus", systemImage: "button.programmable.square.fill")
 //                }
-//                .tag(Tabs.cloud)
+//                .tag(Tabs.looptimus)
             InfoView()
                 .tabItem {
                     Label("About", systemImage: "info.circle")
                 }
 
                 .tag(Tabs.info)
+            
         }
         .padding(20)
         .frame(width: 375, height: 150)
     }
 }
-struct Settings_Previews: PreviewProvider {
-    static var previews: some View {
-        SettingsView()
-    }
-}
+
