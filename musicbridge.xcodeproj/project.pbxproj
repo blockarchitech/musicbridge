@@ -25,7 +25,6 @@
 		27E3EBDA2898B17E00D5FB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E3EBD92898B17E00D5FB55 /* Assets.xcassets */; };
 		27E3EBDD2898B17E00D5FB55 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E3EBDC2898B17E00D5FB55 /* Preview Assets.xcassets */; };
 		27E3EC082898BB1F00D5FB55 /* musicbridgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EC072898BB1F00D5FB55 /* musicbridgeController.swift */; };
-		27F7BBED2A314CA0002CC656 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27F7BBEE2A314CA0002CC656 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,7 +49,6 @@
 		27E3EBF32898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		27E3EC002898B2A200D5FB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		27E3EC072898BB1F00D5FB55 /* musicbridgeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeController.swift; sourceTree = "<group>"; };
-		27F7BBEE2A314CA0002CC656 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +126,6 @@
 				27E3EC002898B2A200D5FB55 /* Info.plist */,
 				27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */,
 				27E3EBD92898B17E00D5FB55 /* Assets.xcassets */,
-				27F7BBEE2A314CA0002CC656 /* GoogleService-Info.plist */,
 				27E3EBDE2898B17E00D5FB55 /* musicbridge.entitlements */,
 				27E3EBDB2898B17E00D5FB55 /* Preview Content */,
 			);
@@ -237,7 +234,6 @@
 			files = (
 				27E3EBDD2898B17E00D5FB55 /* Preview Assets.xcassets in Resources */,
 				27E3EBDA2898B17E00D5FB55 /* Assets.xcassets in Resources */,
-				27F7BBED2A314CA0002CC656 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
