@@ -1,4 +1,4 @@
-**THERE IS AN ISSUE IN MACOS VENTURA CAUSING EXECUTION ERROR -600** This prevents Spotify/Apple Music from being controlled properly, and in some cases, at all. Please see issue #16
+**THERE IS AN ISSUE IN MACOS CAUSING EXECUTION ERROR -600** Please update to version 1.5 or later to fix this.
 
 <h1 align="center">musicbridge</h1>
 
