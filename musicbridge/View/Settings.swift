@@ -105,7 +105,7 @@ struct LearnDownView: View {
 
 struct ExternalDeviceSettings: View {
     @EnvironmentObject var midiManager: MIDIManager
-    @EnvironmentObject var midiHelper: ExternalDeviceHelper
+    @EnvironmentObject var midiHelper: MIDIHelper
     
     @Binding var midiInSelectedID: MIDIIdentifier
     @Binding var midiInSelectedDisplayName: String
@@ -115,7 +115,7 @@ struct ExternalDeviceSettings: View {
                 .bold()
             Divider()
             HStack {
-                ExternalDeviceInputSelectionView(midiInSelectedID: $midiInSelectedID, midiInSelectedDisplayName: $midiInSelectedDisplayName)
+                MIDIInSelectionView(midiInSelectedID: $midiInSelectedID, midiInSelectedDisplayName: $midiInSelectedDisplayName)
             }
         }
     }
@@ -140,9 +140,7 @@ struct InfoView: View {
                 Image(systemName: "music.note")
                     .imageScale(.large)
                     .foregroundColor(.accentColor)
-                Text("musicbridge")
-                    .bold()
-                    .font(Font.title)
+                DevMenuButton()
                 Text("Version \(version)")
                     .foregroundColor(Color.secondary)
                     .font(Font.subheadline)
@@ -172,28 +170,9 @@ struct InfoView: View {
     }
 }
 
-struct LooptimusSettingsView: View {
-    var body: some View {
-        VStack {
-            Text("Control musicbridge with a Looptimus device.")
-                .bold()
-                .font(Font.title3)
-            Divider()
-            Text("No Looptimus devices found.")
-                .foregroundColor(Color.secondary)
-                .font(Font.subheadline)
-            Divider()
-            Text("Looptimus is a registered trademark of Loop Community. musicbridge is not affiliated with Loop Community in any way.")
-                .foregroundColor(Color.secondary)
-                .font(Font.subheadline)
-            
-        }
-    }
-}
-
 struct SettingsView: View {
     @EnvironmentObject var midiManager: MIDIManager
-    @EnvironmentObject var midiHelper: ExternalDeviceHelper
+    @EnvironmentObject var midiHelper: MIDIHelper
     
     @Binding var midiInSelectedID: MIDIIdentifier
     @Binding var midiInSelectedDisplayName: String
@@ -220,11 +199,6 @@ struct SettingsView: View {
                     Label("Learning", systemImage: "waveform.path.ecg.rectangle")
                 }
                 .tag(Tabs.advanced)
-//            LooptimusSettingsView()
-//                .tabItem {
-//                    Label("Looptimus", systemImage: "button.programmable.square.fill")
-//                }
-//                .tag(Tabs.looptimus)
             InfoView()
                 .tabItem {
                     Label("About", systemImage: "info.circle")

@@ -7,68 +7,52 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2700A18F2A3601F300F0A18E /* DevMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700A18E2A3601F300F0A18E /* DevMenu.swift */; };
+		2700A1912A36196500F0A18E /* Utility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2700A1902A36196500F0A18E /* Utility.swift */; };
 		2712D52429D1F1DB006B4271 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712D52329D1F1DB006B4271 /* Main.swift */; };
 		2712D52829D1F406006B4271 /* WindowCommands.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712D52729D1F406006B4271 /* WindowCommands.swift */; };
 		2712D52C29D1F66F006B4271 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2712D52B29D1F66F006B4271 /* Logger.swift */; };
+		271385012A34E8C70044D0C7 /* ActivityDot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 271385002A34E8C70044D0C7 /* ActivityDot.swift */; };
 		2717D87A29E2F02D00CFC1AF /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2717D87929E2F02D00CFC1AF /* FirebaseAnalytics */; };
 		2717D87C29E2F02D00CFC1AF /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = 2717D87B29E2F02D00CFC1AF /* FirebaseCrashlytics */; };
-		2749106229E058ED0020DE37 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2749106129E058ED0020DE37 /* GoogleService-Info.plist */; };
+		274DDD402A2C18370003046A /* musicbridgeController.applescript in Sources */ = {isa = PBXBuildFile; fileRef = 274DDD3F2A2C18370003046A /* musicbridgeController.applescript */; };
 		276873CE28D4B37D006269A8 /* PlayerSwitcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */; };
 		279E4B882899A43300355840 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B872899A43300355840 /* Settings.swift */; };
 		279E4B8C2899B0D600355840 /* MIDIHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 279E4B8B2899B0D600355840 /* MIDIHandler.swift */; };
 		27AD08F92904B88C00D56FA2 /* MIDIKit in Frameworks */ = {isa = PBXBuildFile; productRef = 27AD08F82904B88C00D56FA2 /* MIDIKit */; };
-		27C003C029F56D3900705319 /* ExternalDeviceHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C003BF29F56D3900705319 /* ExternalDeviceHandler.swift */; };
-		27C003C229F56EE000705319 /* ExternalDeviceInputSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C003C129F56EE000705319 /* ExternalDeviceInputSelectionView.swift */; };
+		27C003C029F56D3900705319 /* MIDIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C003BF29F56D3900705319 /* MIDIHelper.swift */; };
+		27C003C229F56EE000705319 /* MIDIInputView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27C003C129F56EE000705319 /* MIDIInputView.swift */; };
 		27E3EBD62898B17C00D5FB55 /* musicbridgeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */; };
-		27E3EBD82898B17C00D5FB55 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBD72898B17C00D5FB55 /* ContentView.swift */; };
 		27E3EBDA2898B17E00D5FB55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E3EBD92898B17E00D5FB55 /* Assets.xcassets */; };
 		27E3EBDD2898B17E00D5FB55 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27E3EBDC2898B17E00D5FB55 /* Preview Assets.xcassets */; };
-		27E3EBE82898B17E00D5FB55 /* musicbridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBE72898B17E00D5FB55 /* musicbridgeTests.swift */; };
-		27E3EBF22898B17E00D5FB55 /* musicbridgeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBF12898B17E00D5FB55 /* musicbridgeUITests.swift */; };
-		27E3EBF42898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EBF32898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift */; };
-		27E3EC082898BB1F00D5FB55 /* PlayerControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EC072898BB1F00D5FB55 /* PlayerControl.swift */; };
+		27E3EC082898BB1F00D5FB55 /* musicbridgeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27E3EC072898BB1F00D5FB55 /* musicbridgeController.swift */; };
+		27F7BBED2A314CA0002CC656 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 27F7BBEE2A314CA0002CC656 /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		27E3EBE42898B17E00D5FB55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E3EBCA2898B17C00D5FB55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27E3EBD12898B17C00D5FB55;
-			remoteInfo = musicbridge;
-		};
-		27E3EBEE2898B17E00D5FB55 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27E3EBCA2898B17C00D5FB55 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27E3EBD12898B17C00D5FB55;
-			remoteInfo = musicbridge;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
+		2700A18E2A3601F300F0A18E /* DevMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DevMenu.swift; sourceTree = "<group>"; };
+		2700A1902A36196500F0A18E /* Utility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utility.swift; sourceTree = "<group>"; };
 		2712D52329D1F1DB006B4271 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		2712D52729D1F406006B4271 /* WindowCommands.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowCommands.swift; sourceTree = "<group>"; };
 		2712D52B29D1F66F006B4271 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
-		2749106129E058ED0020DE37 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		271385002A34E8C70044D0C7 /* ActivityDot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityDot.swift; sourceTree = "<group>"; };
+		274DDD3F2A2C18370003046A /* musicbridgeController.applescript */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.applescript; path = musicbridgeController.applescript; sourceTree = "<group>"; };
 		276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerSwitcher.swift; sourceTree = "<group>"; };
 		279E4B872899A43300355840 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		279E4B8B2899B0D600355840 /* MIDIHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIHandler.swift; sourceTree = "<group>"; };
-		27C003BF29F56D3900705319 /* ExternalDeviceHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDeviceHandler.swift; sourceTree = "<group>"; };
-		27C003C129F56EE000705319 /* ExternalDeviceInputSelectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternalDeviceInputSelectionView.swift; sourceTree = "<group>"; };
+		27C003BF29F56D3900705319 /* MIDIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIHelper.swift; sourceTree = "<group>"; };
+		27C003C129F56EE000705319 /* MIDIInputView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MIDIInputView.swift; sourceTree = "<group>"; };
 		27E3EBD22898B17C00D5FB55 /* musicbridge.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = musicbridge.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeApp.swift; sourceTree = "<group>"; };
-		27E3EBD72898B17C00D5FB55 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		27E3EBD92898B17E00D5FB55 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27E3EBDC2898B17E00D5FB55 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27E3EBDE2898B17E00D5FB55 /* musicbridge.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = musicbridge.entitlements; sourceTree = "<group>"; };
-		27E3EBE32898B17E00D5FB55 /* musicbridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = musicbridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E3EBE72898B17E00D5FB55 /* musicbridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeTests.swift; sourceTree = "<group>"; };
-		27E3EBED2898B17E00D5FB55 /* musicbridgeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = musicbridgeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		27E3EBF12898B17E00D5FB55 /* musicbridgeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeUITests.swift; sourceTree = "<group>"; };
 		27E3EBF32898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		27E3EC002898B2A200D5FB55 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
-		27E3EC072898BB1F00D5FB55 /* PlayerControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerControl.swift; sourceTree = "<group>"; };
+		27E3EC072898BB1F00D5FB55 /* musicbridgeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = musicbridgeController.swift; sourceTree = "<group>"; };
+		27F7BBEE2A314CA0002CC656 /* GoogleService-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -82,28 +66,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27E3EBE02898B17E00D5FB55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27E3EBEA2898B17E00D5FB55 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
 		276873CC28D4B326006269A8 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				27E3EC072898BB1F00D5FB55 /* PlayerControl.swift */,
+				27E3EC072898BB1F00D5FB55 /* musicbridgeController.swift */,
 				276873CD28D4B37D006269A8 /* PlayerSwitcher.swift */,
+				274DDD3F2A2C18370003046A /* musicbridgeController.applescript */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -111,12 +82,13 @@
 		279E4B892899AF2C00355840 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				27E3EBD72898B17C00D5FB55 /* ContentView.swift */,
 				2712D52729D1F406006B4271 /* WindowCommands.swift */,
 				279E4B872899A43300355840 /* Settings.swift */,
 				2712D52329D1F1DB006B4271 /* Main.swift */,
 				2712D52B29D1F66F006B4271 /* Logger.swift */,
-				27C003C129F56EE000705319 /* ExternalDeviceInputSelectionView.swift */,
+				27C003C129F56EE000705319 /* MIDIInputView.swift */,
+				271385002A34E8C70044D0C7 /* ActivityDot.swift */,
+				2700A18E2A3601F300F0A18E /* DevMenu.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -125,7 +97,8 @@
 			isa = PBXGroup;
 			children = (
 				279E4B8B2899B0D600355840 /* MIDIHandler.swift */,
-				27C003BF29F56D3900705319 /* ExternalDeviceHandler.swift */,
+				27C003BF29F56D3900705319 /* MIDIHelper.swift */,
+				2700A1902A36196500F0A18E /* Utility.swift */,
 			);
 			path = MIDI;
 			sourceTree = "<group>";
@@ -145,8 +118,6 @@
 			isa = PBXGroup;
 			children = (
 				27E3EBD22898B17C00D5FB55 /* musicbridge.app */,
-				27E3EBE32898B17E00D5FB55 /* musicbridgeTests.xctest */,
-				27E3EBED2898B17E00D5FB55 /* musicbridgeUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -160,8 +131,8 @@
 				27E3EC002898B2A200D5FB55 /* Info.plist */,
 				27E3EBD52898B17C00D5FB55 /* musicbridgeApp.swift */,
 				27E3EBD92898B17E00D5FB55 /* Assets.xcassets */,
+				27F7BBEE2A314CA0002CC656 /* GoogleService-Info.plist */,
 				27E3EBDE2898B17E00D5FB55 /* musicbridge.entitlements */,
-				2749106129E058ED0020DE37 /* GoogleService-Info.plist */,
 				27E3EBDB2898B17E00D5FB55 /* Preview Content */,
 			);
 			path = musicbridge;
@@ -207,9 +178,8 @@
 			buildConfigurationList = 27E3EBF72898B17E00D5FB55 /* Build configuration list for PBXNativeTarget "musicbridge" */;
 			buildPhases = (
 				27E3EBCE2898B17C00D5FB55 /* Sources */,
-				27E3EBCF2898B17C00D5FB55 /* Frameworks */,
 				27E3EBD02898B17C00D5FB55 /* Resources */,
-				2717D87D29E2F0C800CFC1AF /* ShellScript */,
+				27E3EBCF2898B17C00D5FB55 /* Frameworks */,
 			);
 			buildRules = (
 			);
@@ -226,42 +196,6 @@
 			productReference = 27E3EBD22898B17C00D5FB55 /* musicbridge.app */;
 			productType = "com.apple.product-type.application";
 		};
-		27E3EBE22898B17E00D5FB55 /* musicbridgeTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27E3EBFA2898B17E00D5FB55 /* Build configuration list for PBXNativeTarget "musicbridgeTests" */;
-			buildPhases = (
-				27E3EBDF2898B17E00D5FB55 /* Sources */,
-				27E3EBE02898B17E00D5FB55 /* Frameworks */,
-				27E3EBE12898B17E00D5FB55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27E3EBE52898B17E00D5FB55 /* PBXTargetDependency */,
-			);
-			name = musicbridgeTests;
-			productName = musicbridgeTests;
-			productReference = 27E3EBE32898B17E00D5FB55 /* musicbridgeTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		27E3EBEC2898B17E00D5FB55 /* musicbridgeUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27E3EBFD2898B17E00D5FB55 /* Build configuration list for PBXNativeTarget "musicbridgeUITests" */;
-			buildPhases = (
-				27E3EBE92898B17E00D5FB55 /* Sources */,
-				27E3EBEA2898B17E00D5FB55 /* Frameworks */,
-				27E3EBEB2898B17E00D5FB55 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27E3EBEF2898B17E00D5FB55 /* PBXTargetDependency */,
-			);
-			name = musicbridgeUITests;
-			productName = musicbridgeUITests;
-			productReference = 27E3EBED2898B17E00D5FB55 /* musicbridgeUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -270,18 +204,10 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1410;
+				LastUpgradeCheck = 1500;
 				TargetAttributes = {
 					27E3EBD12898B17C00D5FB55 = {
 						CreatedOnToolsVersion = 14.0;
-					};
-					27E3EBE22898B17E00D5FB55 = {
-						CreatedOnToolsVersion = 14.0;
-						TestTargetID = 27E3EBD12898B17C00D5FB55;
-					};
-					27E3EBEC2898B17E00D5FB55 = {
-						CreatedOnToolsVersion = 14.0;
-						TestTargetID = 27E3EBD12898B17C00D5FB55;
 					};
 				};
 			};
@@ -303,8 +229,6 @@
 			projectRoot = "";
 			targets = (
 				27E3EBD12898B17C00D5FB55 /* musicbridge */,
-				27E3EBE22898B17E00D5FB55 /* musicbridgeTests */,
-				27E3EBEC2898B17E00D5FB55 /* musicbridgeUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -316,81 +240,31 @@
 			files = (
 				27E3EBDD2898B17E00D5FB55 /* Preview Assets.xcassets in Resources */,
 				27E3EBDA2898B17E00D5FB55 /* Assets.xcassets in Resources */,
-				2749106229E058ED0020DE37 /* GoogleService-Info.plist in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27E3EBE12898B17E00D5FB55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27E3EBEB2898B17E00D5FB55 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
+				27F7BBED2A314CA0002CC656 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
-
-/* Begin PBXShellScriptBuildPhase section */
-		2717D87D29E2F0C800CFC1AF /* ShellScript */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
-				"$(SRCROOT)/$(BUILT_PRODUCTS_DIR)/$(INFOPLIST_PATH)\n",
-			);
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${BUILD_DIR%/Build/*}/SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n\n";
-		};
-/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		27E3EBCE2898B17C00D5FB55 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27E3EBD82898B17C00D5FB55 /* ContentView.swift in Sources */,
 				2712D52829D1F406006B4271 /* WindowCommands.swift in Sources */,
+				271385012A34E8C70044D0C7 /* ActivityDot.swift in Sources */,
 				276873CE28D4B37D006269A8 /* PlayerSwitcher.swift in Sources */,
 				279E4B882899A43300355840 /* Settings.swift in Sources */,
+				2700A1912A36196500F0A18E /* Utility.swift in Sources */,
+				274DDD402A2C18370003046A /* musicbridgeController.applescript in Sources */,
+				2700A18F2A3601F300F0A18E /* DevMenu.swift in Sources */,
 				2712D52C29D1F66F006B4271 /* Logger.swift in Sources */,
 				279E4B8C2899B0D600355840 /* MIDIHandler.swift in Sources */,
 				27E3EBD62898B17C00D5FB55 /* musicbridgeApp.swift in Sources */,
-				27C003C029F56D3900705319 /* ExternalDeviceHandler.swift in Sources */,
-				27C003C229F56EE000705319 /* ExternalDeviceInputSelectionView.swift in Sources */,
+				27C003C029F56D3900705319 /* MIDIHelper.swift in Sources */,
+				27C003C229F56EE000705319 /* MIDIInputView.swift in Sources */,
 				2712D52429D1F1DB006B4271 /* Main.swift in Sources */,
-				27E3EC082898BB1F00D5FB55 /* PlayerControl.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27E3EBDF2898B17E00D5FB55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27E3EBE82898B17E00D5FB55 /* musicbridgeTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27E3EBE92898B17E00D5FB55 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27E3EBF22898B17E00D5FB55 /* musicbridgeUITests.swift in Sources */,
-				27E3EBF42898B17E00D5FB55 /* musicbridgeUITestsLaunchTests.swift in Sources */,
+				27E3EC082898BB1F00D5FB55 /* musicbridgeController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -401,16 +275,6 @@
 			isa = PBXTargetDependency;
 			productRef = 27798806289DB13D0021968A /* WebMIDIKit */;
 		};
-		27E3EBE52898B17E00D5FB55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27E3EBD12898B17C00D5FB55 /* musicbridge */;
-			targetProxy = 27E3EBE42898B17E00D5FB55 /* PBXContainerItemProxy */;
-		};
-		27E3EBEF2898B17E00D5FB55 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27E3EBD12898B17C00D5FB55 /* musicbridge */;
-			targetProxy = 27E3EBEE2898B17E00D5FB55 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
@@ -418,6 +282,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -452,6 +317,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -480,6 +346,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
@@ -514,6 +381,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -546,7 +414,7 @@
 				CURRENT_PROJECT_VERSION = 1.5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"musicbridge/Preview Content\"";
-				DEVELOPMENT_TEAM = XYRKGTQW6K;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -586,7 +454,7 @@
 				CURRENT_PROJECT_VERSION = 1.5;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"musicbridge/Preview Content\"";
-				DEVELOPMENT_TEAM = XYRKGTQW6K;
+				DEVELOPMENT_TEAM = "";
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -611,78 +479,6 @@
 			};
 			name = Release;
 		};
-		27E3EBFB2898B17E00D5FB55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blockarchitech.musicbridgeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/musicbridge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/musicbridge";
-			};
-			name = Debug;
-		};
-		27E3EBFC2898B17E00D5FB55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 13.0;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blockarchitech.musicbridgeTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/musicbridge.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/musicbridge";
-			};
-			name = Release;
-		};
-		27E3EBFE2898B17E00D5FB55 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blockarchitech.musicbridgeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = musicbridge;
-			};
-			name = Debug;
-		};
-		27E3EBFF2898B17E00D5FB55 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEAD_CODE_STRIPPING = YES;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.blockarchitech.musicbridgeUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = musicbridge;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -700,24 +496,6 @@
 			buildConfigurations = (
 				27E3EBF82898B17E00D5FB55 /* Debug */,
 				27E3EBF92898B17E00D5FB55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27E3EBFA2898B17E00D5FB55 /* Build configuration list for PBXNativeTarget "musicbridgeTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27E3EBFB2898B17E00D5FB55 /* Debug */,
-				27E3EBFC2898B17E00D5FB55 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27E3EBFD2898B17E00D5FB55 /* Build configuration list for PBXNativeTarget "musicbridgeUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27E3EBFE2898B17E00D5FB55 /* Debug */,
-				27E3EBFF2898B17E00D5FB55 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

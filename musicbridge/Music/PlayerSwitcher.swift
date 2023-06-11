@@ -15,15 +15,15 @@ func setPlayerTag(settag: GeneralSettingsView.Players) {
 }
 func musicUp() {
     if (Player == "spotify") {
-        spotifyUp()
+        Controller.spUp()
     } else if (Player == "am") {
-        appleMusicUp()
+        Controller.amUp()
     }
 }
 func musicDown() {
     if (Player == "spotify") {
-        spotifyDown()
+        Controller.spDown()
     } else if (Player == "am") {
-        appleMusicDown()
+        Controller.amUp()
     }
 }

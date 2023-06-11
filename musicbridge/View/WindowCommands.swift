@@ -25,9 +25,6 @@ struct AppCommands: Commands {
             }
             .keyboardShortcut("l", modifiers: .command)
             .disabled(true)
-            Button("Crash") {
-              fatalError("Crash was triggered")
-            }
         }
     }
 }

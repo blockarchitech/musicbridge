@@ -2,7 +2,16 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>hello</key>
+	<string>You probably don&apos;t know what you&apos;re doing, therefore, don&apos;t touch this. If you do, why not shoot us an email? hello@znci.dev</string>
+	<key>znci</key>
+	<array>
+		<string>L:block@znci.dev</string>
+		<string>S;hello@znci.dev</string>
+	</array>
 	<key>FirebaseAppDelegateProxyEnabled</key>
 	<false/>
+	<key>Privacy — AppleEvents Sending Usage Description</key>
+	<string>musicbridge uses Apple Events to control Spotify/Apple Music.</string>
 </dict>
 </plist>

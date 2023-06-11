@@ -12,8 +12,6 @@ import MIDIKit
 import FirebaseCore
 
 
-
-
 extension Bundle {
     var buildNumber: String {
         return infoDictionary?["CFBundleVersion"] as! String
@@ -21,7 +19,11 @@ extension Bundle {
 }
 let build = Bundle.main.buildNumber
 let version = build
+let Controller = musicbridgeController()
 
+func async(_ block: @escaping () -> Void) {
+    DispatchQueue.global(qos: .background).async(execute: block)
+}
 
 @objc
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -46,10 +48,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         if let m = NSApp.mainMenu?.item(withTitle: "Window") {
             NSApp.mainMenu?.removeItem(m)
         }
-        
-        
-
-        // Must refresh after every time SwiftUI re adds
         token = NSApp.observe(\.mainMenu, options: .new) { (app, change) in
             // Refresh your changes
             guard let menu = app.mainMenu?.item(withTitle: "Edit") else { return }
@@ -62,65 +60,40 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 }
 
 var enginestatus = ""
+var midistatus = "stopped"
 let logger = Logger()
 
 @main
 struct musicbridgeApp: App {
     @NSApplicationDelegateAdaptor(AppDelegate.self) var appDelegate
     let midiManager = MIDIManager(
-        clientName: "musicbridge-client",
-        model: "musicbridgeclient",
-        manufacturer: "blockarchitech"
-    )
-    
-    var externalDeviceHelper = ExternalDeviceHelper()
-    
-    @State var midiInSelectedID: MIDIIdentifier = .invalidMIDIIdentifier
-    @State var midiInSelectedDisplayName: String = "None"
-    
-    let virtualInputName = "Virtual musicbridge Input"
-    
-    init() {
+            clientName: "musicbridge",
+            model: "MBController",
+            manufacturer: "znci"
+        )
         
-        do {
-            FirebaseApp.configure()
-            
-            externalDeviceHelper.midiManager = midiManager
-            externalDeviceHelper.initialSetup()
+        let midiHelper = MIDIHelper()
         
+        @AppStorage(MIDIHelper.PrefKeys.midiInID)
+        var midiInSelectedID: MIDIIdentifier = .invalidMIDIIdentifier
+        
+        @AppStorage(MIDIHelper.PrefKeys.midiInDisplayName)
+        var midiInSelectedDisplayName: String = "None"
+        
+        @AppStorage(MIDIHelper.PrefKeys.midiOutID)
+        var midiOutSelectedID: MIDIIdentifier = .invalidMIDIIdentifier
+        
+        @AppStorage(MIDIHelper.PrefKeys.midiOutDisplayName)
+        var midiOutSelectedDisplayName: String = "None"
+        
+        init() {
+            midiHelper.setup(midiManager: midiManager)
             // restore saved MIDI endpoint selections and connections
-            midiRestorePersistentState()
-            externalDeviceHelper.midiInUpdateConnection(selectedUniqueID: midiInSelectedID)
-            
-            // prevent thread 1 from going bezerk
-            if (up == nil) {
-                UserDefaults.standard.set("Not Set", forKey: "up")
-            }
-            if (down == nil) {
-                UserDefaults.standard.set("Not Set", forKey: "down")
-            }
-
+            midiHelper.midiInUpdateConnection(selectedUniqueID: midiInSelectedID)
+            midiHelper.midiOutUpdateConnection(selectedUniqueID: midiOutSelectedID)
+            FirebaseApp.configure()
             enginestatus = "running"
-            try midiManager.start()
-        } catch {
-            enginestatus = "stopped"
         }
-    
-        do {
-            try midiManager.addInput(
-                name: virtualInputName,
-                tag: virtualInputName,
-                uniqueID: .userDefaultsManaged(key: virtualInputName),
-                receiver: .events { events in
-                    DispatchQueue.main.async {
-                        events.forEach { received(midiEvent: $0) }
-                    }
-                }
-            )
-        } catch {
-            logger.error("Error creating virtual MIDI input: \(error.localizedDescription)")
-        }
-    }
     let width = 600
     let height = 500
     var body: some Scene {
@@ -136,8 +109,28 @@ struct musicbridgeApp: App {
                 midiInSelectedDisplayName: $midiInSelectedDisplayName
             )
             .environmentObject(midiManager)
-            .environmentObject(externalDeviceHelper)
+            .environmentObject(midiHelper)
         }
+        .onChange(of: midiInSelectedID) { uid in
+                   // cache endpoint name persistently so we can show it in the event the endpoint disappears
+                   if uid == .invalidMIDIIdentifier {
+                       midiInSelectedDisplayName = "None"
+                   } else if let found = midiManager.endpoints.outputs.first(whereUniqueID: uid) {
+                       midiInSelectedDisplayName = found.displayName
+                   }
+           
+                   midiHelper.midiInUpdateConnection(selectedUniqueID: uid)
+               }
+               .onChange(of: midiOutSelectedID) { uid in
+                   // cache endpoint name persistently so we can show it in the event the endpoint disappears
+                   if uid == .invalidMIDIIdentifier {
+                       midiOutSelectedDisplayName = "None"
+                   } else if let found = midiManager.endpoints.inputs.first(whereUniqueID: uid) {
+                       midiOutSelectedDisplayName = found.displayName
+                   }
+           
+                   midiHelper.midiOutUpdateConnection(selectedUniqueID: uid)
+               }
     }
 }
 
@@ -150,29 +143,4 @@ enum UserDefaultsKeys {
     static let midiInDisplayName = "SelectedMIDIInDisplayName"
 }
 
-extension musicbridgeApp {
-    /// This should only be run once at app startup.
-    private mutating func midiRestorePersistentState() {
-        print("Restoring saved MIDI connections.")
-    
-        let inName = UserDefaults.standard.string(forKey: UserDefaultsKeys.midiInDisplayName) ?? ""
-        _midiInSelectedDisplayName = State(wrappedValue: inName)
-    
-        let inID = Int32(
-            exactly: UserDefaults.standard.integer(forKey: UserDefaultsKeys.midiInID)
-        ) ?? .invalidMIDIIdentifier
-        _midiInSelectedID = State(wrappedValue: inID)
-    
-    }
-    
-    public func midiSavePersistentState() {
-        UserDefaults.standard.set(
-            midiInSelectedID,
-            forKey: UserDefaultsKeys.midiInID
-        )
-        UserDefaults.standard.set(
-            midiInSelectedDisplayName,
-            forKey: UserDefaultsKeys.midiInDisplayName
-        )
-    }
-}
+
