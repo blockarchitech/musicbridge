@@ -54,7 +54,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             app.mainMenu?.removeItem(menu)
         }
-        FirebaseApp.configure()
+        // FirebaseApp.configure() Temp Disabled (needs new Firebase project)
         logger.debug("Finished App Delegate. Configured.")
     }
 }
