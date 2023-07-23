@@ -1,4 +1,3 @@
-**THERE IS AN ISSUE IN MACOS CAUSING EXECUTION ERROR -600** Please update to version 1.5 or later to fix this.
 
 <h1 align="center">musicbridge</h1>
 
