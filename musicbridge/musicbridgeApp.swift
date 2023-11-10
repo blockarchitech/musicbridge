@@ -9,7 +9,6 @@ import SwiftUI
 import Foundation
 import OSLog
 import MIDIKit
-import FirebaseCore
 
 
 extension Bundle {
@@ -54,7 +53,6 @@ class AppDelegate: NSObject, NSApplicationDelegate {
 
             app.mainMenu?.removeItem(menu)
         }
-        // FirebaseApp.configure() Temp Disabled (needs new Firebase project)
         logger.debug("Finished App Delegate. Configured.")
     }
 }
@@ -91,7 +89,6 @@ struct musicbridgeApp: App {
             // restore saved MIDI endpoint selections and connections
             midiHelper.midiInUpdateConnection(selectedUniqueID: midiInSelectedID)
             midiHelper.midiOutUpdateConnection(selectedUniqueID: midiOutSelectedID)
-            FirebaseApp.configure()
             enginestatus = "running"
         }
     let width = 600

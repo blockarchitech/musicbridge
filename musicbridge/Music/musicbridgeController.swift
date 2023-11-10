@@ -72,7 +72,7 @@ struct musicbridgeController {
             script?.compileAndReturnError(&err)
             var _success = script?.executeAndReturnError(&err)
             if (err != nil) {
-                guard err == nil else { fatalError("Execution Error!") }
+                guard err == nil else { fatalError("Execution Error! \(err!)") }
             } else {
                 logger.debug("[controller] AM triggered Up")
             }
@@ -93,7 +93,7 @@ struct musicbridgeController {
             script?.compileAndReturnError(&err)
             var _success = script?.executeAndReturnError(&err)
             if (err != nil) {
-                guard err == nil else { fatalError("Execution Error!") }
+                guard err == nil else { fatalError("Execution Error! \(err!)") }
             } else {
                 logger.debug("[controller] AM triggered Down")
             }
@@ -115,7 +115,7 @@ struct musicbridgeController {
             script?.compileAndReturnError(&err)
             var _success = script?.executeAndReturnError(&err)
             if (err != nil) {
-                guard err == nil else { fatalError("Execution Error!") }
+                guard err == nil else { fatalError("Execution Error! \(err!)") }
             } else {
                 logger.debug("[controller] Spotify triggered up")
             }
@@ -137,7 +137,7 @@ struct musicbridgeController {
             script?.compileAndReturnError(&err)
             var _success = script?.executeAndReturnError(&err)
             if (err != nil) {
-                guard err == nil else { fatalError("Execution Error!") }
+                guard err == nil else { fatalError("Execution Error! \(err!)") }
             } else {
                 logger.debug("[controller] Spotify triggered down")
             }
