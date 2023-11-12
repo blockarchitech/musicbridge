@@ -91,8 +91,8 @@ struct musicbridgeApp: App {
             midiHelper.midiOutUpdateConnection(selectedUniqueID: midiOutSelectedID)
             enginestatus = "running"
         }
-    let width = 600
-    let height = 500
+    let width = 715
+    let height = 600
     var body: some Scene {
         WindowGroup {
             Main()
