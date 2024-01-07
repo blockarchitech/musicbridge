@@ -1,6 +1,6 @@
 NAME="musicbridge"
 DESCRIPTION="AppleScript/MIDI Bridge for Spotify and Apple Music"
-VERSION="v1.4"
+VERSION="v1.7"
 PRIVATE=0
 
 PROJECT_LEAD="gibbiemonster"
